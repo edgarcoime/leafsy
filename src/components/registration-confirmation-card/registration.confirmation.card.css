@@ -1,0 +1,225 @@
+.regist-card-image {
+    height: 13rem;
+    width:13rem;
+    border-radius: 25rem;
+    
+
+}
+
+.img-one {
+    background-color: #f5f4e8;
+}
+
+.img-three {
+    background-color: #53403e;
+}
+
+
+.image-container {
+    padding-top: 2rem;
+    padding-bottom: 1.25rem;
+    background-color: #efc2a3;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+    
+}
+
+.box-container {
+    background-color: #f3a76b;;
+    width: 21rem;
+    height: 30rem;
+    border-radius: 9px;
+}
+
+.box-text {
+    padding-top: 2rem;
+    width: 19.8rem;
+    margin: auto;
+    color: ivory;
+    
+}
+
+.box-text h3 {
+    padding-bottom: 0.625rem;
+    
+}
+
+.box-text p {
+    
+    font-size: 16px;
+    color: ivory;
+    font-family: 'Arvo', serif;
+
+}
+
+.box-button {
+    padding: 0.8rem;
+ 
+}
+
+@media only screen and (max-width: 1160px) {
+
+    .regist-card-image {
+        height: 11.5rem;
+        width:11.5rem;
+    }
+    
+
+    
+    .box-container {
+       
+        width: 19rem;
+        height: 28.75rem; 
+      
+    }
+    
+    .box-text {
+        padding-top: 1.25rem;
+        width: 17.5rem;
+    }
+    
+    .box-text h3 {
+        font-size: 1.5rem !important;
+    }
+    
+    .box-text p {
+        font-size: 1rem;
+    }
+    
+
+
+}
+
+@media only screen and (max-width: 1059px) {
+
+    
+    .regist-card-image {
+        height: 9rem;
+        width:9rem;
+    }
+    
+
+    
+    .box-container {
+       
+        width: 15rem;
+        height: 25rem; 
+      
+    }
+    
+    .box-text {
+        
+        width: 13.5rem;
+    }
+    
+    .box-text h3 {
+        font-size: 1.22rem !important;
+    }
+    
+    .box-text p {
+        font-size: 0.9rem;
+    }
+
+
+}
+
+@media only screen and (max-width: 860px) {
+
+    .regist-card-image {
+        height: 7.5rem;
+        width:7.5rem;
+    }
+    
+
+    
+    .box-container {
+       
+        width: 13rem;
+        height: 24.2rem; 
+      
+    }
+    
+    .box-text {
+        
+        width: 11rem;
+    }
+    
+    .box-text h3 {
+        font-size: 1.25rem !important;
+        padding-bottom: 0.8rem;
+    }
+    
+    .box-text p {
+        font-size: 0.85rem;
+        
+    }
+
+}
+
+@media only screen and (max-width: 760px) {
+
+    
+    .regist-card-image {
+        height: 11.5rem;
+        width:11.5rem;
+    }
+    
+
+    
+    .box-container {
+       
+        width: 18.5rem;
+        height: 28.75rem; 
+      
+    }
+    
+    .box-text {
+        padding-top: 1.25rem;
+        width: 17.5rem;
+    }
+    
+    .box-text h3 {
+        font-size: 1.5rem !important;
+    }
+    
+    .box-text p {
+        font-size: 1rem;
+    }
+
+}
+
+@media only screen and (max-width: 395px) {
+    .regist-card-image {
+        height: 42vw;
+        width: 42vw;
+    }
+    
+
+    
+    .box-container {
+       
+        width: 70vw;
+        height: 110vw;
+        min-height: 23.5rem
+      
+    }
+    
+    .box-text {
+       
+        width: 66vw;
+    }
+    
+    .box-text h3 {
+        font-size: 6vw !important;
+    }
+    
+    .box-text p {
+        font-size: 4vw;
+    }
+
+    .regist-button {
+        font-size: 3.8vw;
+     
+    }
+
+}

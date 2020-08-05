@@ -1,0 +1,71 @@
+
+
+
+
+/* sets the background colour of this section on the page */
+.feature-section {
+    background-color: #fdf5ef;
+    padding-bottom: 3rem;
+}
+
+/* centres the content in the features content column */
+.features-column {
+    margin: auto;
+    text-align: center;
+}
+
+/* creates two columns for the features section so that the content appears on the right */
+.grid-container {
+    display: grid;
+    grid-template-columns: 580px auto;
+}
+
+/* adds padding between the rows in the feature section */
+.row-feature {
+    padding: 25px;
+}
+
+.title-landing {
+    padding: 2.5rem;
+    font-family: 'Merienda One', cursive;
+}
+
+
+
+
+@media only screen and (max-width: 1080px) {
+    .grid-container {
+        
+        grid-template-columns: auto 500px;
+    }
+
+
+
+}
+
+@media only screen and (max-width: 800px) {
+    .grid-container {
+        
+        grid-template-columns: auto ;
+    }
+
+
+}
+
+@media only screen and (max-width: 321px) {
+    .title-landing {
+        padding: 3vw;
+        width: 1vw;
+    }
+
+    .title-landing h1 {
+        font-size: 10vw;
+    }
+
+    .row-feature {
+        padding: 2vw;
+    }
+
+
+}
+

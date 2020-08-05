@@ -1,0 +1,114 @@
+
+/* sets the width of the text to a fixed number */
+.card-text {
+    width: 392px ;
+}
+
+/* the image size  */
+.feature-img {
+    height: 20em;
+    border: solid 2px #d3e4cc;
+    border-radius: 80px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: white;
+    display:block;
+    margin: auto;
+    margin-bottom: 1.8em;
+    margin-top: 1.6em;
+}
+
+.card-line {
+    width: 19rem;
+    margin: auto;
+    padding-bottom: 1rem;
+}
+
+.feature-container {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color:#cad5c0;
+    margin: auto;
+    max-width: 27em;
+    padding-bottom: 1.8em;
+    padding-top: 0.2em;
+}
+
+.card-text p {
+    font-size: 1.05rem;;
+}
+
+.card-text h3 {
+    font-size: 2rem;
+    padding-bottom: 10px;
+}
+
+
+
+@media only screen and (max-width: 500px) {
+
+    .card-text {
+        width: 20em;
+        margin: auto;
+    }
+
+    .card-text p {
+        font-size: 1.05em;;
+    }
+
+    .card-text h3 {
+        font-size: 2em;
+        padding-bottom: 10px;
+    }
+
+    .card-line {
+        width: 50vw;
+    }
+
+    .feature-img {
+        height: 16.5rem;
+        border-radius: 75px;
+    }
+
+    .img-div {
+        height: 305px;
+        padding-top: 25PX;
+    }
+
+    .feature-container {
+        height: 200% !important;
+        width: 330px;
+        padding-bottom: 30px;
+    }
+
+}
+
+@media only screen and (max-width: 330px) {
+
+    .card-text {
+        width: 80vw;
+    }
+
+
+    .card-text p {
+        font-size: 4.5vw;;
+    }
+
+    .card-text h3 {
+        font-size: 7vw;
+        
+    }
+
+    .feature-img {
+        height: 65vw;
+        border-radius: 12vw;
+    }
+
+
+    .feature-container {
+        width: 90vw;
+    }
+    h2.title-landing {
+        font-size: 10vw;
+    }
+
+
+}

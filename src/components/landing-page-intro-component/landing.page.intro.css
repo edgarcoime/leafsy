@@ -1,0 +1,64 @@
+.card-title {
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.4rem;
+}
+
+.intro {
+    width: 42%;
+    margin: auto;
+    padding: 10px;    
+    font-size: 18px;
+}
+
+.card-body-intro {
+    padding-top: 200px ;
+    padding-bottom: 200px ;
+    text-align: center;
+    
+}
+
+
+@media only screen and (max-width: 1080px) {
+    .intro {
+        width: 22rem;
+       
+    }
+
+}
+
+@media only screen and (max-width: 600px) {
+    .intro {
+        width: 20rem;
+        
+    }
+    body {
+        padding: 0;
+    }
+
+    .card-title {
+        font-size: 2.9rem;
+    }
+
+}
+
+@media only screen and (max-width: 321px) {
+    .intro {
+        width: 85vw;
+        font-size: 5.5vw;
+        
+    }
+
+    .card-title {
+        font-size: 15vw;
+    }
+
+    .card-body-intro {
+        padding-top: 7rem;
+        padding-bottom: 7rem;
+    }
+
+}
+
+
+

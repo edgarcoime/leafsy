@@ -1,0 +1,75 @@
+.regist-bg {
+    height: 100%;
+    text-align: center;
+    background-color: #e1f9dc;
+    margin: auto;
+    min-height: 100vh;;
+}
+
+.regist-heading {
+    padding-top: 3.5rem;
+    padding-bottom: 2rem;
+    text-align: center;
+
+  
+}
+
+.regist-title {
+    font-size: 4rem;
+    
+    padding-bottom: 1.25rem;;
+
+}
+
+.regist-body {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.regist-row-container {
+    width: fit-content;
+    padding: 3rem;
+    margin: auto;
+    
+}
+
+.regist-card-container {
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 16px;
+    padding-bottom: 5rem;
+
+   
+}
+
+
+
+@media only screen and (max-width: 760px) {
+
+
+    .regist-card-container {
+        margin: auto;
+        display: grid;
+        grid-template-columns: auto;
+        grid-gap: 16px;
+    
+       
+    }
+
+
+    .regist-title {
+        font-size: 12vw
+    
+    
+    }
+
+    .regist-row-container {
+        
+        padding: 0;
+       
+        
+    }
+
+
+}

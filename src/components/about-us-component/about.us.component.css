@@ -1,0 +1,32 @@
+.aboutus-container {
+    margin: auto;
+    width: 55rem;
+    background-color: aliceblue;
+    padding: 3rem 6.5rem 4.5rem 6.5rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  
+
+}
+
+.about-background {
+    padding-top: 15vh;
+    padding-bottom: 12vh;
+}
+
+
+
+@media only screen and (max-width: 800px) {
+  .aboutus-container {
+      width: 80vw;
+      padding: 5% 10% 9% 10%
+  }
+
+  .about-background {
+      padding-top: 26vw;
+      padding-bottom: 26vw;
+  }
+
+  .about-title {
+    font-size: 7vw;
+}
+}

@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+/* CUSTOMER REQUEST form */
+/* Container for all the inputs */
+
+
+.form-header{
+  margin-left: 3.7%;
+  margin-bottom: 2%;
+}
+
+form {
+  padding: 0 4%;
+}
+
+/* The div which holds the radio question */
+.book-title-radio {
+  /* width: 26rem; */
+  margin-bottom: 2%;
+}
+
+div.form.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.form-group {
+  margin: 1% 0;
+}
+
+#last-name {
+  margin-left: 4%;
+}
+
+.recommendation-form {
+  margin-top: 1.25%;
+}
+
+.delivery {
+  margin: 2.25% 0 1%;
+}
+
+.book-request-button {
+  margin: 1% 0 5% 0;
+  padding-left: 0.32%;
+}
+
+
+

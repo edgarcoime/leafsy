@@ -1,0 +1,166 @@
+.confirmation-bg {
+    padding: 3vw;
+    background-color: #EFF7F8;
+    min-height: 100vh;
+    
+}
+
+.confirmation-container {
+    margin: auto;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 50rem;
+    background-color: white;
+    padding-bottom: 4rem;
+}
+
+.confirmation-heading {
+    padding: 3.5rem;
+    font-size: 2rem;
+    padding-bottom: 1.5rem;
+}
+
+.confirmation-subheading {
+    margin-bottom: 1.7rem;
+    background-color: #FFF4ED;
+    margin: auto;
+    width: 46rem;
+    padding: 1.5rem;
+    
+}
+
+.confirmation-sh-title {
+    padding-bottom: 1.2rem;
+    
+}
+
+.order-summary-heading {
+    padding-top: 2.2rem;
+    padding-bottom: 1.5rem;
+    
+}
+
+.order-summary-box {
+    width: 22rem;
+    margin: auto;
+    line-height: 2.5rem;
+    padding-bottom: 1.75rem;
+    
+}
+
+.confirmation-detail-text {
+    font-size: 1.275rem;
+    line-height: 2.5rem;
+}
+
+.order-detail-heading {
+    padding-right: 3rem;
+}
+
+.confirmation-line {
+    background-color: #FFA66D;
+    width: 30rem;
+    margin: auto;
+    margin-bottom: 2.9rem;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.description-detail {
+    padding-top: 1rem;
+}
+
+.fancy-underline {
+    width: 20rem
+}
+
+.confirmation-summary-title {
+    font-size: 1.75rem;
+}
+
+.confirmation-buttons-box {
+    margin: auto;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.conf-button {
+    margin: 1%;
+}
+
+@media only screen and (max-width: 1025px) {
+
+
+
+        
+    .confirmation-container {
+        width: 80vw;
+        padding-bottom: 5.6vw;
+    }
+
+    .confirmation-heading {
+        padding: 5.5vw;
+        padding-bottom: 2.2vw;
+    }
+
+    .confirmation-subheading {
+        width: 74vw;
+        
+    }
+
+    .order-summary-heading {
+        padding-top: 3.5vw;
+        padding-bottom: 2.5vw;
+    }
+
+    .confirmation-line {
+        width: 50vw;
+    }
+
+    .fancy-underline {
+        width: 31.6vw
+    }
+
+}
+
+@media only screen and (max-width: 500px) {
+    .confirmation-heading-title {
+        font-size: 6.8vw;
+    }
+
+    .confirmation-sh-title {
+        font-size: 4.5vw;
+    }
+
+    .confirmation-order-number {
+        font-size: 4vw;
+    }
+
+    .confirmation-summary-title {
+        font-size: 4.7vw;
+    }
+
+    .order-summary-box {
+        width: 70vw;
+        text-align: justify;
+    }
+
+    .confirmation-line {
+        margin-bottom: 8vw;
+    }
+
+    .fancy-underline {
+        width: 48vw;
+        
+    }
+
+    .confirmation-detail-text {
+        font-size: 4.35vw;
+    }
+
+    .description-detail {
+        text-align: center;
+    }
+}

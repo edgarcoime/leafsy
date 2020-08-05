@@ -1,0 +1,129 @@
+
+/* VIEW-ALL REQUESTS page */
+
+.view-all-requests {
+    padding: 2.5% 0;
+} 
+
+/* Individual Table Header */
+.bookstore-header {
+    font-size: 2em;
+    text-align: center;
+    padding-bottom: 2.5%;
+} 
+
+
+/* Table  */
+.view-all-requests-table {
+    border: 0.5px solid #c8c9ca;
+    border-radius: 10px;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 2%;
+}
+
+.deleteButton {
+    display: block;
+    float: right;
+    margin: 0 4% 0 0;
+}
+
+.deleteButton:hover, svg:hover {
+    color: white !important;
+}
+.deleteIcon {
+    color:#dc3545;
+    margin-top: -1.5px !important;
+    margin-bottom: -1.5px !important;
+}
+
+
+.addOrder, .addRequest {
+    display: block;
+    float: right;
+    margin: 0 4.2% 0.5% 0;
+}
+
+
+.delivery {
+    white-space: normal;
+}
+
+
+th, .icon-fix {
+    white-space: nowrap;
+}
+
+
+th:hover {
+    background-color: #d0f0c0;
+    cursor: pointer;
+}
+
+
+
+.requestBtns {
+    margin-left: 3%;
+}
+
+/* Order Column Widths */
+
+@media (min-width: 644px) {
+    .date {
+        width:3% !important;
+    }
+    .description {
+        width: 22% !important;
+    }
+    .address {
+        width: 20% !important;
+    }
+    .delivery-column {
+        width: 5% !important;
+    }
+    .customer {
+        width: 20% !important;
+    }
+    
+    .bookTitle {
+        width: 15% !important;
+    }
+
+    .edit {
+        width: 14% !important;
+    }
+
+}
+
+
+@media (max-width: 640px) {
+    .view-all-requests-table {
+        border: none;
+    }
+
+    tr {
+        margin-top: 2%;
+    }
+
+    .responsiveTable tbody tr {
+        border: 1px solid #c8c9ca !important;
+        border-radius: 10px;
+    }
+
+   .span-fix {
+        margin-left: 0 !important;
+    }
+    .requestBtns {
+        margin-left: 0 !important;
+    }
+
+    div.tdBefore {
+        left: 15% !important;
+    }
+
+}
+
+.exportButton {
+    float: right;
+     margin-right: 1%;
+}

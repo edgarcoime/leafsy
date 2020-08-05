@@ -1,0 +1,12 @@
+.nav-link {
+      cursor: pointer;  
+}
+
+.navbar-light {
+      background-color: #f7f8ef !important;
+}
+
+.navbar-brand {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.7rem;
+}

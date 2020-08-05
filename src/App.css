@@ -1,0 +1,75 @@
+body {
+    padding: 0 16px;
+}
+
+.window {
+    margin-top: 6%;
+}
+
+.leafsyLogo {
+    height: 100px;
+}
+
+.nav-link {
+    padding-right: 15px !important;
+}
+
+.footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    color:#ccc;
+    text-align: center;
+}
+
+.footerText {
+    margin: 12px auto;
+}
+
+
+/* The form which chooses forms */
+.which-form {
+    margin: 3% 4% !important;
+    width: 80% !important
+}
+
+
+.changeMind {
+    margin-bottom: 2%;
+}
+
+.changeMindTwo{
+    margin-bottom: 1%;
+}
+
+.back {
+    color:#a2bfa8;
+}
+
+.yes-toggle {
+    padding-right: 2%;
+}
+
+.no-toggle {
+    margin-left: 2%;
+}
+
+.labelHelper{
+    margin-left: 3px;
+    font-weight: lighter;
+    font-style: italic;
+}
+
+.labelInput{
+    margin-left: 9.5px;
+}
+
+@media only screen and (max-width: 600px) {
+    #last-name {
+        margin-left: 0;
+    }
+    .labelInput{
+        margin-left: 0;
+    }
+  }
