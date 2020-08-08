@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import googleIcon from "../../form.components/googleDesktop.png";
+import { v4 as uuidv4 } from 'uuid';
 import { useFirestore } from "react-redux-firebase";
 import { useSelector } from "react-redux"
 import './modal.css'
@@ -26,6 +26,7 @@ function Order(props) {
     city: "",
     province: "",
     postalCode: "",
+    confirmationNumber: uuidv4()
   });
 
   const {
@@ -37,11 +38,11 @@ function Order(props) {
     lastName,
     email,
     phoneNumber,
-    address,
     street,
     city,
     province,
     postalCode,
+    confirmationNumber
   } = order;
 
   function handleChange(event) {
@@ -73,6 +74,7 @@ function Order(props) {
       province,
       postalCode,
       deliveryOptions,
+      confirmationNumber,
       createdAt: firestore.FieldValue.serverTimestamp(),
     };
 

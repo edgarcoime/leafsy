@@ -42,7 +42,6 @@ function Order({userId, website, storeName}) {
     email,
     deliveryOptions,
     phoneNumber,
-    address,
     street,
     city,
     province,
