@@ -23,6 +23,7 @@ function LeafsyForm() {
   const storeTitle = user ? user.storeName : null
   const storeAddress = user ? user.storeAddress : "555 seymour st., vancouver"
   const deliveryRadius = user ? user.deliveryRadius : null
+  const website = user ? user.storeWebsite : null
 
  
   const [hasOrder, setOrder] = useState(true);
@@ -37,7 +38,7 @@ function LeafsyForm() {
   return (
     <div className="window">
       <h1 className="form-header">Welcome To {storeTitle} Request Form!</h1>
-        <p className="form-header" id="storeAddress">{storeAddress}</p>
+  <p className="form-header " id="storeAddress"><strong>Bookstore Address: </strong><span id="bookstoreAddress">{storeAddress}</span></p>
         <p className="deliveryRadius" id="deliveryRadius">{deliveryRadius}</p>
       <div className="card bg-light col-sm-6 col-md-4 which-form">
         <div className="card-body">
@@ -75,7 +76,7 @@ function LeafsyForm() {
           </div>
         </div>
       </div>
-      {hasOrder ? <Order userId={userId}/> : <Recommendation userId={userId}/>}
+      {hasOrder ? <Order userId={userId} website={website} storeName={storeTitle} /> : <Recommendation userId={userId} website={website} storeName={storeTitle} />}
     </div>
   );
 }

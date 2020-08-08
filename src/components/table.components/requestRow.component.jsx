@@ -33,10 +33,11 @@ function RequestRow(props) {
       <Td className="date icon-fix">{date}</Td>
       <Td className="customer">
         {firstName} {lastName}
-        {(email || lastName) != "" && <br />}
-        {email}
-        {email != "" && <br />}
-        <span className="icon-fix">{phone}</span>
+        {(email || lastName) !== "" && <br />}
+        <a className="clickable" href={"mailto:" + email}>{email}</a>
+        {email !== "" && <br />}
+        <a className="clickable" href={"tel:" + phone}>{phone}</a>
+
       </Td>
 
       <Td className="delivery"> {deliveryOptions}</Td>
@@ -54,7 +55,7 @@ function RequestRow(props) {
           />
 
           <button
-            className="btn btn-success"
+            className="btn btn-outline-success"
 
             onClick={() => {
               openEdit();

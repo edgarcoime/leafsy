@@ -34,12 +34,12 @@ function Navlinks() {
       <Nav.Link className={"nav-link"} href="/">
         Home
       </Nav.Link>
-      <Nav.Link className={"nav-link"} href="#link">
+      {/* <Nav.Link className={"nav-link"} href="#link">
         Contact Us
       </Nav.Link>
       <Nav.Link className={"nav-link"} href="#aboutUs">
         About Us
-      </Nav.Link>
+      </Nav.Link> */}
 
       {approvedUser() ? (
         <Nav>

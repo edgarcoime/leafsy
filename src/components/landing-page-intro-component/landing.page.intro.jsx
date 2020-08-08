@@ -15,11 +15,12 @@ function LandingPageIntro () {
     return (
         <div style={landingStyles} classsName="card text-center intro-card">
             <div className="card-body-intro">
-                <h1 className="card-title">Leafsy large text here</h1>
-                <p className="intro">Lorem ipsum dolor sit amet, consectetur at ut labore et dolore magna aliqua. Ut enim ad minim veniam,ute irure dolor in reprehenderit in voluptat.</p>
-                <Nav.Link className={"nav-link"} href="/register">
+                <h1 className="card-title">Leafsy</h1>
+                
+                <p className="intro">Leafsy focuses on helping local bookstores keep organized by providing a standardized system for your order requests and inquiries.</p>
+                <a href="/register">
                     <button className="btn btn-success" >Get Started</button>
-                </Nav.Link>
+                </a>
                 
                 
             </div>

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { Alert } from "@material-ui/lab"
 
 // Components
 import LoginInput from "../login-register-input-box-component/login.and.register.input.box";
@@ -9,8 +11,12 @@ import "./login.form.component.css";
 import { useFirebase } from "react-redux-firebase";
 
 function LoginForm(props) {
+  
+  const history = useHistory();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const authError = useSelector(state => state.firebase.authError);
 
   const firebase = useFirebase();
 
@@ -29,24 +35,33 @@ function LoginForm(props) {
     console.log(response)
     setEmail("");
     setPassword("");
+
+    // changes page to the accoubnt
+    history.push("/account");
   };
 
-  const signinWithGoogle = () => {
-    console.log("signing in with google");
-    firebase
-      .login({
-        provider: "google",
-        type: "popup",
-      })
-      .then(() => {
-        console.log("User is signed in");
-      });
-  };
+  // const signinWithGoogle = () => {
+  //   console.log("signing in with google");
+  //   firebase
+  //     .login({
+  //       provider: "google",
+  //       type: "popup",
+  //     })
+  //     .then(() => {
+  //       console.log("User is signed in");
+  //     });
+  // };
 
   return (
     <>
       <form className="login100-form validate-form" onSubmit={onSubmit}>
         <span className="login100-form-title p-b-43">{props.title}</span>
+
+        {authError && (
+          <div>
+            <Alert severity="error">{authError.message}</Alert>
+          </div>
+        )}
 
         <LoginInput
           type="email"
@@ -65,6 +80,8 @@ function LoginForm(props) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+
+
 
         <div className="flex-sb-m w-full p-t-3 p-b-32">
           <div className="contact100-form-checkbox">
@@ -89,7 +106,7 @@ function LoginForm(props) {
             {props.currentPage}
           </button>
         </div>
-        <div className="container-login100-form-btn">
+        {/* <div className="container-login100-form-btn">
           <button
             type="submit"
             onClick={signinWithGoogle}
@@ -97,7 +114,7 @@ function LoginForm(props) {
           >
             Sign in with Google
           </button>
-        </div>
+        </div> */}
       </form>
       {/* <button onClick={logoutUser}>Logout</button> */}
     </>

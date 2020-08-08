@@ -28,7 +28,6 @@ function EditRecommendation(props) {
     description,
     firstName,
     lastName,
-    address,
     deliveryOptions,
     email,
     phoneNumber,
@@ -58,6 +57,7 @@ function EditRecommendation(props) {
       deliveryOptions,
     };
 
+    console.log("payload", payload);
     props.submitEditReco(payload, id);
     props.closeModal();
   }

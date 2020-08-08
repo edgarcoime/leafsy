@@ -29,12 +29,17 @@ export default function ProfilePage() {
   // Update User profile
   const updateProfile = async (newProfile) => {
     const userId = currentUser.token.claims.user_id
-    console.log(userId)
+    let parsedProfile = { ...newProfile };
+    // if (newProfile.deliveryRadius !== Number) {
+    //   parsedProfile = { ...newProfile, deliveryRadius: 100 };
+    // } else {
+    //   parsedProfile = { ...newProfile };
+    // };
     const response = await firestore
       .collection("users")
       .doc(userId)
-      .update(newProfile)
-    console.log(newProfile)
+      .update(parsedProfile);
+    console.log(parsedProfile);
     
   }
 
@@ -51,7 +56,7 @@ export default function ProfilePage() {
 
   return isFullyLoaded() ? (
     <>
-        <div className="container window">
+        <div className="container window account">
         <div className="row">
             <div className="col-md-3">
                  <div className="list-group ">
@@ -75,24 +80,8 @@ export default function ProfilePage() {
         </div>
         </div>
   
-      {/* <p>Email: {currentUser.email}</p>
-      <p>Store Name: {currentUser.storeName}</p>
-      <p>Store Address: {currentUser.storeAddress}</p>
-      <h2>Orders</h2>
-      {
-        currentUser.orders.map((order, idx) => (
-          <p>Order #{idx +1}</p>
-        ))
-      }
-      <h2>Recommendations</h2>
-      {
-        currentUser.recommendations.map((order, idx) => (
-          <p>Recommendation #{idx +1}</p>
-        ))
-      }
-      <Button onClick={updateProfile}>Update profile</Button> */}
     </>
   ) : (
-    <CircularProgress />
+    <CircularProgress className="loading" />
   )
 }

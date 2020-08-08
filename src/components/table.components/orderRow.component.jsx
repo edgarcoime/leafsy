@@ -35,10 +35,10 @@ function OrderRow(props) {
       <Td
        className="customer">
         {firstName} {lastName}
-        {(firstName || lastName) != "" && <br />}
-        {email}
-        {email != "" && <br />}
-        {phone}
+        {(firstName || lastName) !== "" && <br />}
+        <a className="clickable" href={"mailto:" + email}>{email}</a>
+        {email !== "" && <br />}
+        <a className="clickable" href={"tel:" + phone}>{phone}</a>
       </Td>
       <Td className="delivery">{delivery}</Td>
       <Td className="address">{street}{city && street ?  "," : null} {city}{city && province ? "," : null} {province} {postalCode}</Td>
@@ -59,7 +59,7 @@ function OrderRow(props) {
           />
 
           <button
-          className="btn btn-success"
+          className="btn btn-outline-success"
             onClick={() => {
               editOrder(order, orderId);
               openEdit();

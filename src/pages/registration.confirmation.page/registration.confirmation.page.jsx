@@ -1,12 +1,12 @@
 import React from "react"
 
 import "./registration.confirmation.css"
-import image from "./images/screen-post-2x2zO3L1sBE-unsplash.jpg";
+
 import Card from "../../components/registration-confirmation-card/registration-confirmation-card";
 
-import image1 from "./images/logo-green-transparent.png";
-import image2 from "./images/logo-darkgreen-book.png";
-import image3 from "./images/logo-pink-transparent.png";
+import image2 from "./images/LEAFSY_LOGO_01.png";
+import image1 from "./images/screen-post-2x2zO3L1sBE-unsplash.jpg";
+import image3 from "./images/LEAFSY_LOGO_03.png";
 
 
 
