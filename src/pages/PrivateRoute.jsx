@@ -32,7 +32,7 @@ export default function PrivateRoute({ component: RouteComponent, ...rest }) {
         approvedUser() ? (
           <RouteComponent {...routeProps} />
         ) : (
-          <Redirect to={"/login"} />
+          <Redirect to={"/"} />
         )
       }
     />
