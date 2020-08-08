@@ -178,6 +178,7 @@ function LoginForm(props) {
 
   // registers the user into firebase
   const signUpHandler = async () => {
+
     try {
       // these functions will indicate which input fields are filled in incorrectly 
       passwordhandler();
@@ -234,6 +235,7 @@ function LoginForm(props) {
       } else {
   
         // this resets the error state to false so if all the required fields are filled out, the Alert error mesage will disappear (figure 2.)
+
         setUser((prevUser) => {
           return {
             ...prevUser,
@@ -270,7 +272,7 @@ function LoginForm(props) {
       {/* displays any authentication errors */}
       {authError && (
           <div>
-            <Alert severity="error">{authError.message}</Alert>
+            <Alert severity="error">{authError.message}</Alert><br />
           </div>
         )}
 

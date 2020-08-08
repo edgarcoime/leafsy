@@ -8,7 +8,7 @@ import "./Navlinks.css";
 
 function leafsyNav(props) {
   return (
-    <Navbar className="navbar navbar-light" expand="md">
+    <Navbar className="navbar navbar-light" id="navbar" expand="md">
       <Navbar.Brand className="navbar-brand" href="/">
       <img alt="circular logo leafsy text" src={MobileLogo} className={"mobileLogo"}/>
         <img alt="circular logo reading Leafsy with a book face down " src={NavLogo} className={"leafsyLogo"}/>

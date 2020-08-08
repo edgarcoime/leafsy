@@ -1,1 +1,6 @@
-/* Medium devices (landscape tablets, 768px and up) */
+.page-up-icon {
+    position: fixed !important;
+    bottom: 75px !important;
+    right: 30px !important;
+
+}

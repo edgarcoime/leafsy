@@ -13,7 +13,7 @@ const landingStyles = {
 
 function LandingPageIntro () {
     return (
-        <div style={landingStyles} classsName="card text-center intro-card">
+        <div style={landingStyles} classsName="card text-center intro-card" id="intro-home">
             <div className="card-body-intro">
                 <h1 className="card-title">Leafsy</h1>
                 
