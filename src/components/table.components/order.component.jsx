@@ -2,9 +2,12 @@ import React, { useState, useEffect } from "react";
 import OrderRow from "./orderRow.component";
 import Modal from "../partials/Modal/Modal.component";
 import { Table, Thead, Tbody, Tr, Th } from 'react-super-responsive-table'
+import Help from '../partials/Popover/popover.component'
+import "./table.css"
 
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import ExpandLessIcon from '@material-ui/icons/ExpandLess';import "./table.css";
+import FormControl from 'react-bootstrap/FormControl'
+import AddIcon from '@material-ui/icons/Add';import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css'
 
 // redux-firebase
@@ -124,6 +127,9 @@ function Order() {
 
 
   const [ordersArray, setOrdersArray] = useState([]);
+  const [searchBar, setSearchBar] = useState("");
+
+
   useEffect(() => {
     // Parse through object and create an array
     let newArr = [];
@@ -135,7 +141,9 @@ function Order() {
         })
       });
     }
-    setOrdersArray(newArr)
+
+    setOrdersArray(newArr);
+
 
   }, [ordersObject.docs])
 
@@ -167,11 +175,23 @@ function Order() {
     setSortConfig({ key, direction });
   };
 
+  
+  const inputChange = event => {
+    setSearchBar(event.target.value);
+
+  }
+
+
+
+  //  ||order.confirmationNumber.toLowerCase().includes(searchBar.toLowerCase())
+  //  )
+
+
   return (
-    <div className="window">
+    <div className="window request-table">
       <h2 className="bookstore-header">{storeName} Orders</h2>
       <div className="tableButtons">
-        <Modal
+        <Modal 
           modalHeader={"Add an Order"}
           modalBody={"addOrderForm"}
           addOrder={addOrder}
@@ -191,21 +211,37 @@ function Order() {
           editOrder={editOrder}
           submitEditOrder={submitEditOrder}
         />
-                {/* <button
-          className="btn btn-outline-danger deleteButton"
-          >
-          <DeleteIcon className="deleteIcon"/>
-        </button> */}
 
+        <div className="form-group row ctrl">
+
+        <div 
+        className="col-sm-9 col-md-9 col-lg-10 btn-group filterContainer">
+        <FormControl
+          type="text"
+          placeholder="Search..."
+          className="filterRequests form-control"
+          onChange={inputChange}
+        />
+            <Help 
+            title="Filter Seach" 
+            content="Search through orders by entering customer information, book details or confirmation numbers."
+            />
+        </div>
+
+        
+        <div className="col-sm-3 col-md-3 col-lg-2 addBtnContainer">
         <button
           onClick={openModal}
-          className="btn btn-outline-success addOrder"
+          className="btn btn-success addOrder"
         >
-          Add an Order
+           <AddIcon className="addBtnText"/>
         </button>
+        </div>
 
 
-      </div>
+        </div>
+        </div>
+
 
       <div className="table-responsive table-hover col-md-11 view-all-requests-table">
         <Table className="table sortable" id="book-orders">
@@ -263,7 +299,17 @@ function Order() {
           </Thead>
 
           <Tbody>
-          {ordersArray.map((order, index) => {
+          {(ordersArray.filter(order => 
+          order.docId && 
+        (order.firstName.toLowerCase().includes(searchBar.toLowerCase()) ||
+        order.lastName.toLowerCase().includes(searchBar.toLowerCase()) ||
+        order.phoneNumber.toLowerCase().includes(searchBar.toLowerCase())  ||
+        order.email.toLowerCase().includes(searchBar.toLowerCase()) ||
+        order.bookTitle.toLowerCase().includes(searchBar.toLowerCase()) ||
+        order.bookAuthor.toLowerCase().includes(searchBar.toLowerCase()) ||
+        order.deliveryOptions.toLowerCase().includes(searchBar.toLowerCase()) ||
+        order.address.toLowerCase().includes(searchBar.toLowerCase()) ||
+        order.description.toLowerCase().includes(searchBar.toLowerCase())))).map((order, index) => {
             if (!!order.docId) return (
                 <OrderRow
                   date={!order.createdAt ? null : toDayMonthYear(order.createdAt)}

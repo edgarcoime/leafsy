@@ -53,7 +53,7 @@ const rrfProps = {
 
 function AuthIsLoaded({ children }) {
   const auth = useSelector((state) => state.firebase.auth);
-  if (!isLoaded(auth)) return <div><CircularProgress /></div>;
+  if (!isLoaded(auth)) return <div><CircularProgress className="loading" /></div>;
   return children;
 }
 

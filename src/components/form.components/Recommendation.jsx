@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import googleIcon from "./googleDesktop.png";
 import { useFirestore } from "react-redux-firebase";
 import calculateDistance from "./calculate_distance";
+import { Alert } from "@material-ui/lab"
 
 import "./form.component.css";
 
@@ -9,7 +10,7 @@ import { useHistory } from "react-router-dom";
 import { v4 as uuidv4 } from 'uuid';
 import Inputmask from "inputmask";
 
-function Recommendation({ userId }) {
+function Recommendation({ userId, website, storeName }) {
   let history = useHistory();
   let provinces = ["AB", "BC", "MB", "NB", "NL", "NS", "ON", "PE", "QC", "SK", "NT", "NU", "YT"];
 
@@ -26,7 +27,8 @@ function Recommendation({ userId }) {
     street: "",
     city: "",
     province: "",
-    postalCode: ""
+    postalCode: "",
+    error: false
 
   });
 
@@ -43,6 +45,7 @@ function Recommendation({ userId }) {
     city,
     province,
     postalCode,
+    error,
   } = recommendation;
 
   async function submitForm(event) {
@@ -66,14 +69,28 @@ function Recommendation({ userId }) {
       createdAt: firestore.FieldValue.serverTimestamp(),
       confirmationNumber: uuidv4()
     };
+    
+    if (email || phoneNumber) {
 
-    const response = await firestore
-      .collection("recommendations")
-      .doc()
-      .set(payload)
-    console.log(payload, response);
+      const response = await firestore
+        .collection("recommendations")
+        .doc()
+        .set(payload)
+      console.log(payload, response);
+  
+      payload.website = website;
+      payload.storeName = storeName;
+  
+      history.push("/order-confirmation", [payload])
+    } else {
+      setRecommendation((previous) => {
+        return {
+          ...previous,
+          error: true,
+        };
+      });
+    }
 
-    history.push("/order-confirmation", [payload])
 
   }
 
@@ -119,8 +136,15 @@ function Recommendation({ userId }) {
  
 
   return (
-    <div>
+    <div className="request-form-window">  
+
       <h4 className="form-header">Request a Book</h4>
+      {error ?
+                <div>
+            <Alert severity="error">You must include a method of contact before you can submit a request (i.e. Phone Number or Email)</Alert><br />
+          </div> :
+          null
+          }
 
       <form onSubmit={submitForm} className="request-form-two book-title-no">
         <div id="form-two">
@@ -351,11 +375,10 @@ function Recommendation({ userId }) {
                   disabled={true}
                   value="drop-off"
                   onClick={handleChange}
-                  disabled="true"
                 />
 
                 <label className="form-check-label" htmlFor="delivery-book">
-                  Drop-off
+                  Delivery
                 </label>
               </div>
             </div>

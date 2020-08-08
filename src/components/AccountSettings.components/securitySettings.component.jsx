@@ -54,18 +54,18 @@ function SecuritySettings() {
             </div>
             <div className="row">
               <div className="col-md-12">
-                <p id="securityMessage"></p>
+                <p id="securityMessage">Click the following to receive an e-mail in order to reset your password.</p>
 
                 <form>
-                  <div className="form-group row">
-                    <div className="offset-4 col-8">
+                  <div className="row">
+                    <div className="col-12">
                       <button
                         onClick={resetPassword}
                         type="button"
                         className={
                           activeButton
-                            ? "btn btn-primary"
-                            : "btn btn-primary disabled"
+                            ? "btn btn-primary mx-auto d-block"
+                            : "btn btn-primary disabled mx-auto d-block"
                         }
                         id="securityButton"
                       >

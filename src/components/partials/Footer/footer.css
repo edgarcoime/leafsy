@@ -1,0 +1,52 @@
+.footer{
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    background-color: #EFE7ED;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0.8;
+    z-index: 1;
+    text-align: center;
+  }
+
+  .copyrightIcon {
+      width: 60px;
+      margin-right: 1%;
+  }
+
+  .licensing {
+      margin-left: 10px;
+  }
+
+  .pinkIcon {
+      width: 28px;
+      margin-right: 5px;
+  }
+
+  h4.form-header {
+      margin-left: 3.8%;
+  }
+
+  h1.form-header {
+      margin-left: 3.8%;
+  }
+  
+@media (max-width: 576px) {
+
+
+    .footer {
+        opacity: .95;
+    }
+
+    .pinkIcon {
+        display: none;
+    }
+
+}
+
+
+
+
+  

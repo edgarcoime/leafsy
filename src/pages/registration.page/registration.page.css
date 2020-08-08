@@ -1,0 +1,9 @@
+#registration-form-component {
+    margin-top: -100px;
+}
+
+@media only screen and (max-width: 577px) {
+    #registration-form-component {
+        margin-top: 0;
+    }
+}

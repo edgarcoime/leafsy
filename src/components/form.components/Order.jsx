@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import "../../App.css";
 import "./form.component.css"
-import googleIcon from "./googleDesktop.png";
 import { useFirestore } from "react-redux-firebase"
 
 import calculateDistance from "./calculate_distance";
 import { useHistory } from "react-router-dom";
 import { v4 as uuidv4 } from 'uuid';
+import { Alert } from "@material-ui/lab"
 
 import Inputmask from "inputmask";
 
-function Order({userId}) {
+function Order({userId, website, storeName}) {
   let provinces = ["AB", "BC", "MB", "NB", "NL", "NS", "ON", "PE", "QC", "SK", "NT", "NU", "YT"];
 
   let history = useHistory();
@@ -30,6 +30,7 @@ function Order({userId}) {
     city: "",
     province: "",
     postalCode: "",
+    error: false,
   });
 
   const {
@@ -46,6 +47,7 @@ function Order({userId}) {
     city,
     province,
     postalCode,
+    error,
   } = order;
 
   function handleChange(event) {
@@ -81,13 +83,27 @@ function Order({userId}) {
       confirmationNumber: uuidv4()
     };
 
-    const response = await firestore
-      .collection("orders")
-      .doc()
-      .set(payload)
-    console.log(payload, response);
+    if (email || phoneNumber) {
 
-    history.push("/order-confirmation", [payload])
+      const response = await firestore
+        .collection("orders")
+        .doc()
+        .set(payload)
+      console.log(payload, response);
+  
+      payload.website = website;
+      payload.storeName = storeName;
+  
+      history.push("/order-confirmation", [payload])
+    } else {
+      setOrder((prevOrder) => {
+        return {
+          ...prevOrder,
+          error: true,
+        };
+      });
+    }
+
 
 
   }
@@ -102,8 +118,16 @@ Inputmask({"mask": "(999) 999 - 9999"}).mask(phoneInput)
 
 
   return (
-    <div>
+    <div className="request-form-window">
       <h4 className="form-header">Order a Book</h4>
+
+
+      {error ?
+                <div>
+            <Alert severity="error">You must include a method of contact before you can submit a request (i.e. Phone Number or Email)</Alert><br />
+          </div> :
+          null
+          }
 
       <form className="request-form-one" onSubmit={submitForm}>
         <div id="form-one">
@@ -324,12 +348,10 @@ Inputmask({"mask": "(999) 999 - 9999"}).mask(phoneInput)
                   value="drop-off"
                   onClick={handleChange}
                   disabled="true"
-
-                  // disabled={true}
                 />
 
                 <label className="form-check-label" htmlFor="delivery-book">
-                  Drop-off
+                  Delivery
                 </label>
               </div>
             </div>

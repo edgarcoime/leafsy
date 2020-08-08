@@ -1,0 +1,11 @@
+svg.helpIcon:hover, button.helpButton:active {
+    color: red !important;
+}
+
+svg.helpIcon {
+    color: grey
+}
+
+.helpButton {
+    margin-left: 0.3%;
+}

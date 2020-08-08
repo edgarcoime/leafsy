@@ -1,10 +1,4 @@
 
-/* VIEW-ALL REQUESTS page */
-
-.view-all-requests {
-    padding: 2.5% 0;
-} 
-
 /* Individual Table Header */
 .bookstore-header {
     font-size: 2em;
@@ -28,6 +22,10 @@
     margin: 0 4% 0 0;
 }
 
+.clickable {
+    font: 16px sans-serif;
+}
+
 .deleteButton:hover, svg:hover {
     color: white !important;
 }
@@ -37,16 +35,82 @@
     margin-bottom: -1.5px !important;
 }
 
+@media (max-width: 576px) {
+    .request-table {
+        padding-bottom: 15%;
+    }
+    
+    .filterRequests {
+        width: 100% !important;
+        text-align: center !important;
+    }
 
-.addOrder, .addRequest {
-    display: block;
-    float: right;
-    margin: 0 4.2% 0.5% 0;
+    .footer {
+        opacity: .95;
+    }
+
+    .addOrder {
+        border-radius: 50px;
+        border: 2.5px solid;
+        position: fixed;
+        width: 70px;
+        height: 70px;
+        bottom: 80px;
+        right: 5px;
+        z-index: 1;
+    }
+
+    .helpIcon { 
+        border-radius: 10px;
+    }
+  
 }
 
 
-.delivery {
-    white-space: normal;
+@media (min-width: 576px) and (max-width: 768px) {
+  .filterContainer {
+      padding: 0;
+  }
+
+  .filterRequests {
+      width: 300px !important;
+  }
+
+  .addOrder {
+    display: block;
+    float: right;
+    margin-right: 0 !important;
+}
+
+.addBtnContainer {
+    padding: 0 !important;
+}
+}
+
+@media (min-width: 768px) {
+    .filterRequests {
+        margin-left: 3.9%;
+        width: 300px !important;
+    }
+
+    .addOrder {
+        display: block;
+        float: right;
+        margin-right: 3%;
+    }
+
+}
+
+.request-table {
+    padding-bottom: 10%;
+}
+
+.ctrl {
+    margin-right: 3% !important;
+}
+
+.addBtnText {
+    margin-bottom: 2px;
 }
 
 
@@ -73,16 +137,20 @@ th:hover {
         width:3% !important;
     }
     .description {
-        width: 22% !important;
+        width: 32% !important;
     }
     .address {
-        width: 20% !important;
+        width: 15% !important;
     }
     .delivery-column {
         width: 5% !important;
     }
     .customer {
-        width: 20% !important;
+        width: 15% !important;
+    }
+
+    .genre {
+        width: 5% !important;
     }
     
     .bookTitle {

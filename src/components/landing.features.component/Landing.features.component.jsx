@@ -42,13 +42,13 @@ function FeaturesSection() {
 
                         <FeaturesCard
                             cardTitle="Organized Tables"
-                            cardContent="Lorem ipsum dolor siu. Nulla tristique felis metus, non porttitor sapien sagittis sit amet. In lectus purus, porta a blandit ac, commodo eu augue. Ut vitae pu"
+                            cardContent="Filter and sort through your requests. Manage them in real time. Our tables are mobile-friendly to help you sort through orders on the go."
                             imgSRC={bookStoreImage}
                         />
 
 `                       <FeaturesCard
                             cardTitle="Profesional Forms"
-                            cardContent="Lorem ipsum dolor siu. Nulla tristique felis metus, non porttitor sapien sagittis sit amet. In lectus purus, porta a blandit ac, commodo eu augue. Ut vitae pu"
+                            cardContent="Our forms streamline communication by offering you and your customer a direct line of contact with all the information you need."
                             imgSRC={orderImage}
                         />  
 

@@ -5,6 +5,7 @@ function calculateDistance() {
   let province = document.getElementById("province-picker").value;
   let postalCode = document.getElementById("postalCode").value;
     
+  console.log(street)
       // api xmlHTTP fordistance caluclation in browser
     let request = new XMLHttpRequest();
 
@@ -14,7 +15,7 @@ function calculateDistance() {
 
 
     // Retrieves the bookstore/business address from an element with an id of #bookstoreAddress
-    let bookstoreAddress = document.getElementById("storeAddress").innerHTML;
+    let bookstoreAddress = document.getElementById("bookstoreAddress").innerHTML;
     bookstoreAddress = bookstoreAddress.trim().split(" ").join("%20");
     
     // retrieves the customer address from the input box with a id specified in the argument/parameter
@@ -23,7 +24,9 @@ function calculateDistance() {
     customerAddress = customerAddress.split(" ").join("%20");
 
 
-  
+  console.log(customerAddress)
+  console.log(bookstoreAddress)
+  console.log(deliveryDistance)
 
     // uses the bing maps api to retrieve an object containing the distance calculation between the two addresses
     request.open("GET", "https://dev.virtualearth.net/REST/v1/Routes?wayPoint.1=" + bookstoreAddress + "[address]&Waypoint.2=" + customerAddress + "&distanceUnit=km&key=AuM54vOzfnoekS5jchUOAoAXdsrCX0yCjwKjlHOwRtzGrunpQY767BWypWjVGDO7" )

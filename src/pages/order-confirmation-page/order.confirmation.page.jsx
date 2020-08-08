@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./order.confirmation.css"
 
 
@@ -27,10 +27,14 @@ function OrderConfirmation(props) {
         city,
         province,
         postalCode,
-        createdAt
+        createdAt,
+        website,
+        storeName
+        
         
       } = props.location.state[0];
 
+   
      
 
 
@@ -59,6 +63,13 @@ function OrderConfirmation(props) {
                 <hr className="confirmation-line" />
 
                     <div className="order-summary-box">
+
+                    {storeName ?
+                        <div className="d-flex justify-content-between">
+                            <b className="order-detail-heading confirmation-detail-text" >Store</b> <p className="confirmation-detail-text">{storeName}</p>
+                        </div>  :
+                        null
+                    }
                         
                         <div className="d-flex justify-content-between">
                             <b className="order-detail-heading confirmation-detail-text" >Name</b> <p className="confirmation-detail-text">{firstName + " " + lastName}</p>
@@ -154,6 +165,12 @@ function OrderConfirmation(props) {
                 </a>
 
                 <button className="btn btn-outline-info conf-button" onClick={window.print}>print</button>
+
+                {website &&
+                    <a href={website}>
+                        <button className="btn btn-outline-info conf-button">Back to {storeName ? storeName : "Site"}</button>
+                    </a>
+                    }
                 
             </div>
         </div>

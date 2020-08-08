@@ -2,12 +2,14 @@ import React, { useState, useEffect } from "react";
 import RequestRow from "./requestRow.component";
 import Modal from "../partials/Modal/Modal.component";
 import { Table, Thead, Tbody, Tr, Th } from 'react-super-responsive-table'
+import Help from '../partials/Popover/popover.component'
 import "./table.css";
 
+import FormControl from 'react-bootstrap/FormControl'
+import AddIcon from '@material-ui/icons/Add';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';import "./table.css";
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css'
-
 
 // Redux-firebase
 import { useFirestoreConnect, useFirestore } from "react-redux-firebase";
@@ -164,10 +166,19 @@ function Request() {
     }
     return 0;
   });
+  
+  const [searchBar, setSearchBar] = useState("");
+
+  const inputChange = event => {
+    setSearchBar(event.target.value);
+    console.log(searchBar)
+  }
+
+   //  ||reco.confirmationNumber.toLowerCase().includes(searchBar.toLowerCase())
 
 
   return (
-    <div className="window">
+    <div className="window request-table">
       <h2 className="bookstore-header">{storeName} Recommendations</h2>
 
       <Modal
@@ -192,13 +203,37 @@ function Request() {
         submitEditReco={submitEditReco}
       />
 
-      <button
-        onClick={openModal}
-        className="btn btn-outline-secondary addRequest"
-        id="addRequest"
-      >
-        Add a Recommendation
-      </button>
+              
+        <div className="form-group row ctrl">
+
+        <div 
+        className="col-xs-12 col-sm-9 col-md-9 col-lg-10 btn-group filterContainer">
+        <FormControl
+          type="text"
+          placeholder="Search..."
+          className="filterRequests form-control"
+          onChange={inputChange}
+        />
+        <Help 
+        title="Filter Seach" 
+        content="Search through recommendations by entering customer information, request details or confirmation numbers."
+
+        />
+        </div>
+
+
+        <div className="col-xs-12 col-sm-3 col-md-3 col-lg-2 addBtnContainer">
+        <button
+          onClick={openModal}
+          className="btn btn-success addOrder"
+        >
+         <AddIcon className="addBtnText" fontSize="small" />
+        </button>
+        </div>
+
+
+        </div>
+
 
       <div className="table-responsive table-hover col-md-11 view-all-requests-table">
         <Table className="table sortable" id="recommendation-requests">
@@ -260,7 +295,17 @@ function Request() {
           </Thead>
 
           <Tbody>
-            {recosArray.map((recommendation, index) => {
+            {recosArray.filter(reco => 
+            reco.docId &&
+            (reco.firstName.toLowerCase().includes(searchBar.toLowerCase()) ||
+            reco.lastName.toLowerCase().includes(searchBar.toLowerCase()) ||
+            reco.phoneNumber.toLowerCase().includes(searchBar.toLowerCase())  ||
+            reco.email.toLowerCase().includes(searchBar.toLowerCase()) ||
+            reco.genre.toLowerCase().includes(searchBar.toLowerCase()) ||
+            reco.deliveryOptions.toLowerCase().includes(searchBar.toLowerCase()) ||
+            reco.address.toLowerCase().includes(searchBar.toLowerCase()) ||
+            reco.description.toLowerCase().includes(searchBar.toLowerCase())) 
+            ).map((recommendation, index) => {
 
               if (!!recommendation.docId) return (
                 <RequestRow

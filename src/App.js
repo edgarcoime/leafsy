@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "./components/partials/Nav/Nav.component";
+import Footer from "./components/partials/Footer/footer.component.jsx"
 import LeafsyForm from "./pages/form.page/LeafsyForm.page";
 import { Switch, Route } from "react-router-dom";
 
@@ -20,6 +21,7 @@ import PrivateRoute from "./pages/PrivateRoute";
 import AccountSettings from "./pages/account.page/AccountSettings.jsx";
 import OrderConfirmation from "./pages/order-confirmation-page/order.confirmation.page";
 import RegistrationConfirmation from "./pages/registration.confirmation.page/registration.confirmation.page";
+import PublicRoute from "./pages/PublicRoute";
 
 function App() {
   return (
@@ -29,7 +31,7 @@ function App() {
         </header>
           <Switch>
             <Route path="/" component={ LandingPage } exact />
-            <Route path="/login" component={LoginPage} />
+            <PublicRoute path="/login" component={LoginPage} />
             <Route path="/register" component={RegistrationPage} />
             <Route path="/google-sign-up" component={GoogleSignUp} />
             <Route path="/recover" component={RecoverPassword} />
@@ -41,6 +43,7 @@ function App() {
             <PrivateRoute path="/book-orders" component={OrderTable} />
             <PrivateRoute path="/recommendations" component={RequestTable} />
           </Switch>
+          <Footer />
     </div>
   );
 }
