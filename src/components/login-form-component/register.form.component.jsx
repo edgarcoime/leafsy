@@ -76,7 +76,7 @@ function LoginForm(props) {
         
         // password must contain a digit
         if (!/[0-9]/.test(password)) {
-          document.getElementById("password-error").innerHTML = "you must include a NUMBER in your pasword.";
+          document.getElementById("password-error").innerHTML = "you must include a NUMBER in your password.";
         } 
 
         // passowrd too short. must contain atleast 6 characters
