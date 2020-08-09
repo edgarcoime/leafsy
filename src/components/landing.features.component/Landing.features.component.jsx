@@ -47,7 +47,7 @@ function FeaturesSection() {
                         />
 
 `                       <FeaturesCard
-                            cardTitle="Profesional Forms"
+                            cardTitle="Professional Forms"
                             cardContent="Our forms streamline communication by offering you and your customer a direct line of contact with all the information you need."
                             imgSRC={orderImage}
                         />  
