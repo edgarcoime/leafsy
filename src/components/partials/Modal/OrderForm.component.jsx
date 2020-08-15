@@ -76,6 +76,7 @@ function Order(props) {
       deliveryOptions,
       confirmationNumber,
       createdAt: firestore.FieldValue.serverTimestamp(),
+      anonymous: false,
     };
 
     props.addOrder(payload);

@@ -67,7 +67,8 @@ function Recommendation({ userId, website, storeName }) {
       province,
       postalCode,
       createdAt: firestore.FieldValue.serverTimestamp(),
-      confirmationNumber: uuidv4()
+      confirmationNumber: uuidv4(),
+      anonymous: true,
     };
     
     if (email || phoneNumber) {

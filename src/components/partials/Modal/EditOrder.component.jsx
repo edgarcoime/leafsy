@@ -69,6 +69,7 @@ function EditOrder(props) {
       province,
       postalCode,
       deliveryOptions,
+      anonymous: false,
     };
 
     // Conditional Logic "Are You sure you want to edit?"
