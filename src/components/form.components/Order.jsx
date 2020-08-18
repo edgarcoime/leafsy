@@ -377,6 +377,7 @@ Inputmask({"mask": "(999) 999 - 9999"}).mask(phoneInput)
 
               <input
                 type="tel"
+                pattern="[0-9]*"
                 className="form-control phone"
                 id="phone"
                 name="phoneNumber"

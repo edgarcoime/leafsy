@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./account.css";
+import Popover from "../partials/Popover/popover.component";
 
 function GeneralSettings({ updateProfile, currentUser }) {
   const [storeInfo, setStoreInfo] = useState({
@@ -46,6 +47,10 @@ function GeneralSettings({ updateProfile, currentUser }) {
     }, 5000);
   };
 
+  const clickhandler = (e) => {
+    e.preventDefault()
+  }
+
   return (
     <div class="col-md-9">
       <div class="card">
@@ -58,10 +63,11 @@ function GeneralSettings({ updateProfile, currentUser }) {
           </div>
           <div class="row">
             <div class="col-md-12">
-              <form>
+              <form onSubmit={clickhandler}>
                 <div class="form-group row">
                   <label for="storeName" class="col-4 col-form-label">
-                    Store Name
+                    Business Name          
+                    <Popover title="Business Name" content="Personalize your forms by entering your business name here. This will appear on all pages your customers interact with to let them know this is your store." />
                   </label>
                   <div class="col-8">
                     <input
@@ -77,7 +83,8 @@ function GeneralSettings({ updateProfile, currentUser }) {
 
                 <div class="form-group row">
                   <label for="storeWebsite" class="col-4 col-form-label">
-                    Store Website
+                    Business URL  
+                    <Popover title="Business Url" content="Copy and paste a URL link here. This link allows your customers to navigate back to whatever url you wish at anytime they are on our site. (e.g. https://www.example.com)" />
                   </label>
                   <div class="col-8">
                     <input
@@ -93,7 +100,8 @@ function GeneralSettings({ updateProfile, currentUser }) {
 
                 <div class="form-group row">
                   <label for="storeAddress" class="col-4 col-form-label">
-                    Store Address
+                    Business Address  
+                    <Popover title="Business Address" content="Enter an address so your customers can see where you are located. This address is also used by our distance calculator to check to see if the customer's address is within a certain radius to your business. (e.g. 1234 example st., Vancouver, BC, A1A 1A1)" />
                   </label>
                   <div class="col-8">
                     <input
@@ -111,7 +119,8 @@ function GeneralSettings({ updateProfile, currentUser }) {
 
                 <div class="form-group row">
                   <label for="distance" class="col-4 col-form-label">
-                    Delivery Radius (km)
+                    Delivery Radius (km)  
+                    <Popover  title="Delivery Radius" content="Enter a positive number to represent how many kilometers away you are willing to deliver to. If you don't want to have a delivery option enter 0 as your delivery radius. If you don't want to have a limit on delivery enter 10000. Our system will calculate the distance between your business address and the customer's address to only allow the customers that are within the radius to choose the delivery option." />
                   </label>
                   <div class="col-8">
                     <input
@@ -133,6 +142,8 @@ function GeneralSettings({ updateProfile, currentUser }) {
                   <label class="col-4 col-form-label">
                     Form URL
                     <i id="copied">{copied}</i>
+                    <Popover title="Form URL" content="Press on the 'Copy Link' button to copy the URL for your account's order form or view it by pressing the 'View Form' button. You can place the URL on your own website for your customers to access." />
+                 
                   </label>
 
                   <div class="col-8">
