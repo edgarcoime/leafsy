@@ -404,9 +404,9 @@ function Recommendation({ userId, website, storeName }) {
             <div className="form-group">
               <label htmlFor="phone">Phone Number</label>
               <input
-                type="tel"
+                type="number"
                 className="form-control phone"
-                pattern="[0-9()]{5} [0-9]{3} - [0-9]{4}"
+
                 id="phone"
                 name="phoneNumber"
                 value={phoneNumber}
