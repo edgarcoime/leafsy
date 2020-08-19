@@ -3,9 +3,18 @@ svg.helpIcon:hover, button.helpButton:active {
 }
 
 svg.helpIcon {
-    color: grey
+    color: grey;
+    width: 20px;
 }
 
 .helpButton {
-    margin-left: 0.3%;
+    margin-left: 0.8%;
+}
+
+@media (max-width: 576px) {
+
+    .helpIcon { 
+        border-radius: 10px;
+    }
+  
 }

@@ -15,7 +15,7 @@ export default function Help({title, content}) {
       );    
 
     return(
-        <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
+        <OverlayTrigger placement="bottom" overlay={popover}>
             <button className="helpButton"><HelpOutlineIcon className="helpIcon" fontSize="sm"/></button>
         </OverlayTrigger>
     )
