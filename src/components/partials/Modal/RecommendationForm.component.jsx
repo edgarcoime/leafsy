@@ -303,8 +303,8 @@ function Recommendation(props) {
                   className="form-check-input"
                   type="radio"
                   name="deliveryOptions"
-                  id="drop-off"
-                  value="drop-off"
+                  id="delivery"
+                  value="delivery"
                   onClick={handleChange}
                 />
 

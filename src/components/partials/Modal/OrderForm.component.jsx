@@ -285,15 +285,15 @@ function Order(props) {
                   className="form-check-input"
                   type="radio"
                   name="deliveryOptions"
-                  id="drop-off"
-                  value="drop-off"
+                  id="delivery"
+                  value="delivery"
                   onClick={handleChange}
 
                   // disabled={true}
                 />
 
                 <label className="form-check-label" htmlFor="delivery-book">
-                  Drop-off
+                  Delivery
                 </label>
               </div>
             </div>
