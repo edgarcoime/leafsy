@@ -406,7 +406,7 @@ function Recommendation({ userId, website, storeName }) {
               <input
                 type="tel"
                 className="form-control phone"
-                pattern="[0-9]*"
+                pattern="[0-9()]{5} [0-9]{3} - [0-9]{4}"
                 id="phone"
                 name="phoneNumber"
                 value={phoneNumber}
