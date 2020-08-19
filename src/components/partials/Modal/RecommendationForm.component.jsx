@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from 'uuid';
 import { useFirestore } from "react-redux-firebase";
 import { useSelector } from "react-redux";
+import Inputmask from "inputmask";
 
 function Recommendation(props) {
   let provinces = ["AB", "BC", "MB", "NB", "NL", "NS", "ON", "PE", "QC", "SK", "NT", "NU", "YT"];
@@ -99,6 +100,16 @@ function Recommendation(props) {
       };
     });
   }
+
+
+  useEffect(() => {
+
+    // creates a more user friendly input for the phone number
+    const phoneInput = document.getElementById("phone");
+    Inputmask({"mask": "(999) 999 - 9999"}).mask(phoneInput)
+ 
+   })
+
 
   return (
     <div>
@@ -335,6 +346,7 @@ function Recommendation(props) {
               <label htmlFor="phone">Phone Number</label>
               <input
                 type="tel"
+                pattern="[0-9()]{5} [0-9]{3} - [0-9]{4}"
                 className="form-control phone"
                 id="phone"
                 name="phoneNumber"

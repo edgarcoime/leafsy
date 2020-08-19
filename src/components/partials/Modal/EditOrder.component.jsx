@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import googleIcon from "../../form.components/googleDesktop.png";
+import Inputmask from "inputmask";
 
 function EditOrder(props) {
   let provinces = ["AB", "BC", "MB", "NB", "NL", "NS", "ON", "PE", "QC", "SK", "NT", "NU", "YT"];
@@ -78,6 +79,16 @@ function EditOrder(props) {
 
     props.closeModal();
   }
+
+
+  useEffect(() => {
+
+    // creates a more user friendly input for the phone number
+    const phoneInput = document.getElementById("phone");
+    Inputmask({"mask": "(999) 999 - 9999"}).mask(phoneInput)
+ 
+   })
+
 
   return (
     <div>
@@ -317,6 +328,7 @@ function EditOrder(props) {
                 type="tel"
                 className="form-control phone"
                 id="phone"
+                pattern="[0-9()]{5} [0-9]{3} - [0-9]{4}"
                 name="phoneNumber"
                 onChange={handleChange}
                 value={phoneNumber}

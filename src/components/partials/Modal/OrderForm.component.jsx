@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from 'uuid';
 import { useFirestore } from "react-redux-firebase";
 import { useSelector } from "react-redux"
 import './modal.css'
+import Inputmask from "inputmask";
 
 
 function Order(props) {
@@ -83,6 +84,16 @@ function Order(props) {
 
     props.closeModal();
   }
+
+
+  useEffect(() => {
+
+    // creates a more user friendly input for the phone number
+    const phoneInput = document.getElementById("phone");
+    Inputmask({"mask": "(999) 999 - 9999"}).mask(phoneInput)
+ 
+   })
+
 
   return (
     <div>
@@ -320,6 +331,7 @@ function Order(props) {
 
               <input
                 type="tel"
+                pattern="[0-9()]{5} [0-9]{3} - [0-9]{4}"
                 className="form-control phone"
                 id="phone"
                 name="phoneNumber"
