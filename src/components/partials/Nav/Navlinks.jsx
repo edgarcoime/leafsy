@@ -2,6 +2,7 @@ import React from "react";
 import Nav from "react-bootstrap/Nav";
 import { isLoaded, isEmpty } from "react-redux-firebase"
 import { useSelector } from "react-redux"
+import { useHistory } from "react-router-dom"
 import "../../../App.css";
 import "./Navlinks.css";
 
@@ -9,6 +10,7 @@ import "./Navlinks.css";
 import { useFirebase } from "react-redux-firebase"
 
 function Navlinks() {
+  const history = useHistory();
   const firebase = useFirebase();
 
   const authObject = useSelector(state => ({
@@ -17,6 +19,7 @@ function Navlinks() {
   }))
   const logoutUser = async () => {
     await firebase.auth().signOut();
+    history.push("/");
     console.log("User is logged out");
   }
 

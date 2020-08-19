@@ -291,14 +291,14 @@ function EditRecommendation(props) {
                   className="form-check-input"
                   type="radio"
                   name="deliveryOptions"
-                  id="drop-off"
-                  value="drop-off"
+                  id="delivery"
+                  value="delivery"
                   onClick={handleChange}
                   checked={deliveryOptions === "pick-up" ? false : true}
                 />
 
                 <label className="form-check-label" htmlFor="delivery-book">
-                  Drop-off
+                  Delivery
                 </label>
               </div>
             </div>

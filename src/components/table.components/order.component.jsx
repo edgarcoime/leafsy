@@ -183,10 +183,6 @@ function Order() {
 
 
 
-  //  ||order.confirmationNumber.toLowerCase().includes(searchBar.toLowerCase())
-  //  )
-
-
   return (
     <div className="window request-table">
       <h2 className="bookstore-header">{storeName} Orders</h2>
@@ -309,7 +305,9 @@ function Order() {
         order.bookAuthor.toLowerCase().includes(searchBar.toLowerCase()) ||
         order.deliveryOptions.toLowerCase().includes(searchBar.toLowerCase()) ||
         order.address.toLowerCase().includes(searchBar.toLowerCase()) ||
-        order.description.toLowerCase().includes(searchBar.toLowerCase())))).map((order, index) => {
+        order.confirmationNumber.toLowerCase().includes(searchBar.toLowerCase().trim()) ||
+        order.confirmationNumber.toLowerCase().includes("#" + searchBar.toLowerCase().trim()) ||
+        order.description.toLowerCase().includes(searchBar.toLowerCase()))).map((order, index) => {
             if (!!order.docId) return (
                 <OrderRow
                   date={!order.createdAt ? null : toDayMonthYear(order.createdAt)}
@@ -335,7 +333,7 @@ function Order() {
                 />
             )
           })
-          }
+          )}
           </Tbody>
         </Table>
       </div>

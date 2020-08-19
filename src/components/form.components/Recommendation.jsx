@@ -67,7 +67,8 @@ function Recommendation({ userId, website, storeName }) {
       province,
       postalCode,
       createdAt: firestore.FieldValue.serverTimestamp(),
-      confirmationNumber: uuidv4()
+      confirmationNumber: uuidv4(),
+      anonymous: true,
     };
     
     if (email || phoneNumber) {
@@ -405,6 +406,7 @@ function Recommendation({ userId, website, storeName }) {
               <input
                 type="tel"
                 className="form-control phone"
+                pattern="[0-9]*"
                 id="phone"
                 name="phoneNumber"
                 value={phoneNumber}

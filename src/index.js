@@ -10,6 +10,8 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
 import "firebase/functions";
+import "firebase/analytics";
+import "firebase/performance";
 
 // Redux
 import { createStore } from "redux";
@@ -40,6 +42,10 @@ const rrfConfig = {
 
 firebase.initializeApp(firebaseConfig);
 firebase.firestore();
+firebase.analytics();
+firebase.performance();
+firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
+// firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
 
 const initialState = {};
 const store = createStore(rootReducer, initialState, composeWithDevTools());

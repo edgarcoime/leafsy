@@ -304,6 +304,7 @@ function Request() {
             reco.genre.toLowerCase().includes(searchBar.toLowerCase()) ||
             reco.deliveryOptions.toLowerCase().includes(searchBar.toLowerCase()) ||
             reco.address.toLowerCase().includes(searchBar.toLowerCase()) ||
+            reco.confirmationNumber.toLowerCase().includes(searchBar.toLowerCase().trim()) ||
             reco.description.toLowerCase().includes(searchBar.toLowerCase())) 
             ).map((recommendation, index) => {
 

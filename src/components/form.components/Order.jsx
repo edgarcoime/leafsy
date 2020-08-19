@@ -42,7 +42,6 @@ function Order({userId, website, storeName}) {
     email,
     deliveryOptions,
     phoneNumber,
-    address,
     street,
     city,
     province,
@@ -80,7 +79,8 @@ function Order({userId, website, storeName}) {
       province,
       postalCode,
       createdAt: firestore.FieldValue.serverTimestamp(),
-      confirmationNumber: uuidv4()
+      confirmationNumber: uuidv4(),
+      anonymous: true,
     };
 
     if (email || phoneNumber) {
@@ -378,6 +378,7 @@ Inputmask({"mask": "(999) 999 - 9999"}).mask(phoneInput)
 
               <input
                 type="tel"
+                pattern="[0-9]*"
                 className="form-control phone"
                 id="phone"
                 name="phoneNumber"

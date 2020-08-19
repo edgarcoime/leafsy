@@ -42,6 +42,7 @@ function App() {
             <PrivateRoute path="/account" component={ AccountSettings } />
             <PrivateRoute path="/book-orders" component={OrderTable} />
             <PrivateRoute path="/recommendations" component={RequestTable} />
+            <PrivateRoute path="/account-2" component={ AccountSettings } />
           </Switch>
           <Footer />
     </div>

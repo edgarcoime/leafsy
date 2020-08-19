@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import googleIcon from "../../form.components/googleDesktop.png";
+import { v4 as uuidv4 } from 'uuid';
 import { useFirestore } from "react-redux-firebase";
 import { useSelector } from "react-redux";
 
@@ -22,6 +22,7 @@ function Recommendation(props) {
     city: "",
     province: "",
     postalCode: "",
+    confirmationNumber: uuidv4()
   });
 
   const {
@@ -29,7 +30,6 @@ function Recommendation(props) {
     description,
     firstName,
     lastName,
-    address,
     deliveryOptions,
     email,
     phoneNumber,
@@ -37,6 +37,7 @@ function Recommendation(props) {
     city,
     province,
     postalCode,
+    confirmationNumber
   } = recommendation;
 
   async function submitForm(event) {
@@ -57,6 +58,7 @@ function Recommendation(props) {
       city,
       province,
       postalCode,
+      confirmationNumber,
       createdAt: firestore.FieldValue.serverTimestamp()
     };
 
@@ -301,8 +303,8 @@ function Recommendation(props) {
                   className="form-check-input"
                   type="radio"
                   name="deliveryOptions"
-                  id="drop-off"
-                  value="drop-off"
+                  id="delivery"
+                  value="delivery"
                   onClick={handleChange}
                 />
 
