@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./account.css";
 import Popover from "../partials/Popover/popover.component";
+import { Alert } from "@material-ui/lab";
 
 function GeneralSettings({ updateProfile, currentUser }) {
   const [storeInfo, setStoreInfo] = useState({
@@ -8,6 +9,7 @@ function GeneralSettings({ updateProfile, currentUser }) {
     storeWebsite: currentUser.storeWebsite,
     storeAddress: currentUser.storeAddress,
     deliveryRadius: currentUser.deliveryRadius,
+    
   });
 
   function handleChange(event) {
@@ -20,17 +22,29 @@ function GeneralSettings({ updateProfile, currentUser }) {
     });
   }
 
+  const [updateStatus, setUpdateStatus] = useState(false);
+
   const submitSettings = (event) => {
     event.preventDefault();
+    
     const parsedInfo = { ...storeInfo }
     console.log(parsedInfo)
+
+    // sets a default delivery radius of 100 if user leaves it blank/em0pty/null
     if (!storeInfo.deliveryRadius) {
       parsedInfo.deliveryRadius = 100;
     } else {
       parsedInfo.deliveryRadius = parseInt(storeInfo.deliveryRadius);
     };
 
+    // updates the backend of the user
     updateProfile(parsedInfo);
+
+    setUpdateStatus(true);
+    setTimeout(() => {
+      setUpdateStatus(false);
+    }, 5000);
+
   };
 
   const [copied, setCopied] = useState("");
@@ -58,6 +72,7 @@ function GeneralSettings({ updateProfile, currentUser }) {
           <div class="row">
             <div class="col-md-12">
               <h4>Edit Information</h4>
+              {updateStatus && <Alert severity="success">Profile updated successfully!</Alert>}
               <hr />
             </div>
           </div>
