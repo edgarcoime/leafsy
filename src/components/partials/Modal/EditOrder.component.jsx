@@ -325,10 +325,10 @@ function EditOrder(props) {
               <label htmlFor="phone">Phone Number</label>
 
               <input
-                type="number"
+                type="tel"
                 className="form-control phone"
                 id="phone"
-                
+                pattern="[0-9()]{5} [0-9]{3} - [0-9]{4}"
                 name="phoneNumber"
                 onChange={handleChange}
                 value={phoneNumber}
