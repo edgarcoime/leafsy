@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import googleIcon from "../../form.components/googleDesktop.png";
 import './modal.css'
+import Inputmask from "inputmask";
 
 function EditRecommendation(props) {
   let provinces = ["AB", "BC", "MB", "NB", "NL", "NS", "ON", "PE", "QC", "SK", "NT", "NU", "YT"];
@@ -84,6 +85,14 @@ function EditRecommendation(props) {
       };
     });
   }
+
+  useEffect(() => {
+
+    // creates a more user friendly input for the phone number
+    const phoneInput = document.getElementById("phone");
+    Inputmask({"mask": "(999) 999 - 9999"}).mask(phoneInput)
+ 
+   })
 
  
 
@@ -324,6 +333,7 @@ function EditRecommendation(props) {
               <label htmlFor="phone">Phone Number</label>
               <input
                 type="tel"
+                pattern="[0-9()]{5} [0-9]{3} - [0-9]{4}"
                 className="form-control phone"
                 id="phone"
                 name="phoneNumber"
