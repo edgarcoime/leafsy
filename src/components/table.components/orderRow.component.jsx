@@ -52,10 +52,10 @@ function OrderRow(props) {
     console.log(replyStatus)
 
     const payload = {
-      repliedStatus: replyStatus
+      repliedStatus: !repliedStatus
     }
 
-    props.editRepliedStatus(payload, orderId)
+    editRepliedStatus(payload, orderId)
 
   }
 
