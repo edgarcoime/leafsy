@@ -64,7 +64,7 @@ function OrderRow(props) {
   }
 
   if (!replyStatus || repliedStatus === null || repliedStatus === undefined) {
-    rowStyle.backgroundColor = "white"
+    rowStyle.backgroundColor = ""
   }
 
 
