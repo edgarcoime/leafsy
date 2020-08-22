@@ -1,9 +1,10 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import "./table.css";
 import { Tr, Td } from 'react-super-responsive-table'
 import AlertButton from '../partials/Confirmation/AlertButton.component'
 import EditIcon from "@material-ui/icons/Edit";
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 
 function OrderRow(props) {
   
@@ -29,8 +30,45 @@ function OrderRow(props) {
     postalCode,
   } = props;
 
+
+  // hook for the replied status of the row component
+  const [repliedStatus, setRepliedStatus] = useState({
+    status: false,
+    rowStyle: {
+      backgroundColor: "white"
+    }
+  });
+
+// function that changes the replied status for when the button is clicked
+  const replyButton = () => {
+
+    // will change the status to the opposite true (replied) and change the background colour to grey
+    if (!repliedStatus.status) {
+      setRepliedStatus({
+        status: true,
+        rowStyle: {
+          backgroundColor: "#dee2e6"
+        }
+      });
+
+      // changes the status and styling back to the default (not replied and white background)
+    } else {
+      setRepliedStatus({
+        status: false,
+        rowStyle: {
+          backgroundColor: "white"
+        }
+      })
+
+    }
+  }
+  
+
+
+
+
   return (
-    <Tr>
+    <Tr style={repliedStatus.rowStyle}>
       
       <Td className="date">{date}</Td>
       <Td
@@ -72,9 +110,12 @@ function OrderRow(props) {
 
           <button
           className="btn btn-outline-info"
-            
+          onClick={() => {
+              replyButton();
+            }}
           >
-            <CheckCircleOutlineIcon />
+          {repliedStatus.status ?  <CheckCircleIcon /> : <CheckCircleOutlineIcon />}
+            
           </button>
 
 

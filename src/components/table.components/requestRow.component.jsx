@@ -3,6 +3,7 @@ import EditIcon from "@material-ui/icons/Edit";
 import AlertButton from '../partials/Confirmation/AlertButton.component'
 import { Tr, Td } from 'react-super-responsive-table'
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import "./table.css";
 
 
