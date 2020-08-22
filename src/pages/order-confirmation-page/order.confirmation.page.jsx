@@ -48,7 +48,7 @@ function OrderConfirmation(props) {
                 </div>
 
                 <div className="confirmation-subheading">
-                    <h3 className="confirmation-sh-title confirmation-subheading-title">ORDER CONFIRMATION</h3>
+                    <h3 className="confirmation-sh-title confirmation-subheading-title">{email ? <span>You've been sent an email confirmation!</span> : <span> Order Confirmation</span>}</h3>
                     <p className="confirmation-order-number" >CONFIRMATION ID: #{confirmationNumber}</p>
 
                 </div>
