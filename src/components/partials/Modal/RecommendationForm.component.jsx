@@ -23,7 +23,8 @@ function Recommendation(props) {
     city: "",
     province: "",
     postalCode: "",
-    confirmationNumber: uuidv4()
+    confirmationNumber: uuidv4(),
+    repliedStatus: false,
   });
 
   const {
@@ -38,7 +39,8 @@ function Recommendation(props) {
     city,
     province,
     postalCode,
-    confirmationNumber
+    confirmationNumber,
+    repliedStatus,
   } = recommendation;
 
   async function submitForm(event) {
@@ -60,7 +62,8 @@ function Recommendation(props) {
       province,
       postalCode,
       confirmationNumber,
-      createdAt: firestore.FieldValue.serverTimestamp()
+      createdAt: firestore.FieldValue.serverTimestamp(),
+      repliedStatus,
     };
 
     console.log(payload);

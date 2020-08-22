@@ -28,7 +28,8 @@ function Recommendation({ userId, website, storeName }) {
     city: "",
     province: "",
     postalCode: "",
-    error: false
+    error: false,
+    repliedStatus: false,
 
   });
 
@@ -46,6 +47,7 @@ function Recommendation({ userId, website, storeName }) {
     province,
     postalCode,
     error,
+    repliedStatus,
   } = recommendation;
 
   async function submitForm(event) {
@@ -69,6 +71,7 @@ function Recommendation({ userId, website, storeName }) {
       createdAt: firestore.FieldValue.serverTimestamp(),
       confirmationNumber: uuidv4(),
       anonymous: true,
+      repliedStatus,
     };
     
     if (email || phoneNumber) {

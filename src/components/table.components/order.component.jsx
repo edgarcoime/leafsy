@@ -85,6 +85,7 @@ function Order() {
     city: "",
     province: "",
     postalCode: "",
+    
   });
 
   const editOrder = async (order, orderId) => {
