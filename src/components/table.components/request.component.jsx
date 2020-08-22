@@ -127,6 +127,19 @@ function Request() {
 
 
 
+  const editRepliedStatus = async (recommendation, recoId) => {
+    try {
+      const response = await firestore
+        .collection("recommendations")
+        .doc(recoId)
+        .update(recommendation)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+
+
   const [modalShow, setModalShow] = useState(false);
   const closeModal = () => setModalShow(false);
   const openModal = () => setModalShow(true);
@@ -330,6 +343,8 @@ function Request() {
                   city={recommendation.city}
                   province={recommendation.province}
                   postalCode={recommendation.postalCode}
+                  repliedStatus={recommendation.repliedStatus}
+                  editRepliedStatus={editRepliedStatus}
                 />
               ) 
             })

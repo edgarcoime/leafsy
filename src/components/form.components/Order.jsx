@@ -31,6 +31,7 @@ function Order({userId, website, storeName}) {
     province: "",
     postalCode: "",
     error: false,
+    repliedStatus: false,
   });
 
   const {
@@ -47,6 +48,7 @@ function Order({userId, website, storeName}) {
     province,
     postalCode,
     error,
+    repliedStatus
   } = order;
 
   function handleChange(event) {
@@ -81,6 +83,7 @@ function Order({userId, website, storeName}) {
       createdAt: firestore.FieldValue.serverTimestamp(),
       confirmationNumber: uuidv4(),
       anonymous: true,
+      repliedStatus,
     };
 
     if (email || phoneNumber) {

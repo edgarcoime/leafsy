@@ -27,44 +27,40 @@ function RequestRow(props) {
     city,
     province,
     postalCode,
+    repliedStatus,
+    editRepliedStatus
    } = props;
 
 
-     // hook for the replied status of the row component
-  const [repliedStatus, setRepliedStatus] = useState({
-    status: false,
-    rowStyle: {
-      backgroundColor: "white"
-    }
-  });
+  // hook for the replied status of the row component to change the styling
+  const [replyStatus, setReplyStatus] = useState(repliedStatus || false);
 
 // function that changes the replied status for when the button is clicked
   const replyButton = () => {
+    //
+    setReplyStatus(!replyStatus);
+   
 
-    // will change the status to the opposite true (replied) and change the background colour to grey
-    if (!repliedStatus.status) {
-      setRepliedStatus({
-        status: true,
-        rowStyle: {
-          backgroundColor: "#dee2e6"
-        }
-      });
 
-      // changes the status and styling back to the default (not replied and white background)
-    } else {
-      setRepliedStatus({
-        status: false,
-        rowStyle: {
-          backgroundColor: "white"
-        }
-      })
-
+    const payload = {
+      repliedStatus: !replyStatus
     }
+
+    editRepliedStatus(payload, recommendationId)
+
+  }
+
+  let rowStyle = {
+    backgroundColor: "#dee2e6"
+  }
+
+  if (!replyStatus || repliedStatus === null || repliedStatus === undefined) {
+    rowStyle.backgroundColor = "white"
   }
 
 
   return (
-    <Tr style={repliedStatus.rowStyle} >
+    <Tr style={rowStyle} >
 
       <Td className="date icon-fix">{date}</Td>
       <Td className="customer">
@@ -107,7 +103,7 @@ function RequestRow(props) {
               replyButton();
             }}
           >
-          {repliedStatus.status ?  <CheckCircleIcon /> : <CheckCircleOutlineIcon />}
+          {replyStatus ?  <CheckCircleIcon /> : <CheckCircleOutlineIcon />}
             
           </button>
 

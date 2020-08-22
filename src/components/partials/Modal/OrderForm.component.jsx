@@ -27,7 +27,8 @@ function Order(props) {
     city: "",
     province: "",
     postalCode: "",
-    confirmationNumber: uuidv4()
+    confirmationNumber: uuidv4(),
+    repliedStatus: false,
   });
 
   const {
@@ -43,7 +44,8 @@ function Order(props) {
     city,
     province,
     postalCode,
-    confirmationNumber
+    confirmationNumber,
+    repliedStatus,
   } = order;
 
   function handleChange(event) {
@@ -78,6 +80,7 @@ function Order(props) {
       confirmationNumber,
       createdAt: firestore.FieldValue.serverTimestamp(),
       anonymous: false,
+      repliedStatus,
     };
 
     props.addOrder(payload);
