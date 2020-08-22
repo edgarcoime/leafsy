@@ -3,6 +3,7 @@ import "./table.css";
 import { Tr, Td } from 'react-super-responsive-table'
 import AlertButton from '../partials/Confirmation/AlertButton.component'
 import EditIcon from "@material-ui/icons/Edit";
+import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 
 function OrderRow(props) {
   
@@ -67,6 +68,16 @@ function OrderRow(props) {
           >
             <EditIcon />
           </button>
+
+
+          <button
+          className="btn btn-outline-info"
+            
+          >
+            <CheckCircleOutlineIcon />
+          </button>
+
+
         </span>
       </Td>
     

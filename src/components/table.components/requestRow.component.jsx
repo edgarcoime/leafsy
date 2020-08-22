@@ -2,6 +2,7 @@ import React from "react";
 import EditIcon from "@material-ui/icons/Edit";
 import AlertButton from '../partials/Confirmation/AlertButton.component'
 import { Tr, Td } from 'react-super-responsive-table'
+import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import "./table.css";
 
 
@@ -64,6 +65,16 @@ function RequestRow(props) {
           >
             <EditIcon />
           </button>
+
+          <button
+          className="btn btn-outline-info"
+            
+          >
+            <CheckCircleOutlineIcon />
+          </button>
+
+
+
         </span>
       </Td>
     </Tr>
