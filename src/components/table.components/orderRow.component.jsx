@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import "./table.css";
 import { Tr, Td } from 'react-super-responsive-table'
 import AlertButton from '../partials/Confirmation/AlertButton.component'
@@ -42,17 +42,17 @@ function OrderRow(props) {
 
 
   // hook for the replied status of the row component
-  const [replyStatus, setReplyStatus] = useState(repliedStatus);
+  const [replyStatus, setReplyStatus] = useState(repliedStatus || false);
 
 // function that changes the replied status for when the button is clicked
   const replyButton = () => {
-    console.log(repliedStatus)
-    console.log(replyStatus)
-    setReplyStatus(!repliedStatus);
-    console.log(replyStatus)
+
+    setReplyStatus(!replyStatus);
+   
+
 
     const payload = {
-      repliedStatus: !repliedStatus
+      repliedStatus: !replyStatus 
     }
 
     editRepliedStatus(payload, orderId)
