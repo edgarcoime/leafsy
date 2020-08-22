@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import "./table.css";
 import { Tr, Td } from 'react-super-responsive-table'
 import AlertButton from '../partials/Confirmation/AlertButton.component'
