@@ -85,6 +85,7 @@ function Order() {
     city: "",
     province: "",
     postalCode: "",
+    
   });
 
   const editOrder = async (order, orderId) => {
@@ -116,6 +117,23 @@ function Order() {
       console.log(error)
     }
   }
+
+
+  const editRepliedStatus = async (order, orderId) => {
+    try {
+      const response = await firestore
+        .collection("orders")
+        .doc(orderId)
+        .update(order)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+
+
+
+
 
   const [modalShow, setModalShow] = useState(false);
   const closeModal = () => setModalShow(false);
@@ -330,6 +348,8 @@ function Order() {
                   city={order.city}
                   province={order.province}
                   postalCode={order.postalCode}
+                  repliedStatus={order.repliedStatus}
+                  editRepliedStatus={editRepliedStatus}
                 />
             )
           })

@@ -1,7 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 import EditIcon from "@material-ui/icons/Edit";
 import AlertButton from '../partials/Confirmation/AlertButton.component'
 import { Tr, Td } from 'react-super-responsive-table'
+import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import "./table.css";
 
 
@@ -25,10 +27,40 @@ function RequestRow(props) {
     city,
     province,
     postalCode,
+    repliedStatus,
+    editRepliedStatus
    } = props;
 
+
+  // hook for the replied status of the row component to change the styling
+  const [replyStatus, setReplyStatus] = useState(repliedStatus || false);
+
+// function that changes the replied status for when the button is clicked
+  const replyButton = () => {
+    //
+    setReplyStatus(!replyStatus);
+   
+
+
+    const payload = {
+      repliedStatus: !replyStatus
+    }
+
+    editRepliedStatus(payload, recommendationId)
+
+  }
+
+  let rowStyle = {
+    backgroundColor: "#dee2e6"
+  }
+
+  if (!replyStatus || repliedStatus === null || repliedStatus === undefined) {
+    rowStyle.backgroundColor = ""
+  }
+
+
   return (
-    <Tr>
+    <Tr style={rowStyle} >
 
       <Td className="date icon-fix">{date}</Td>
       <Td className="customer">
@@ -64,6 +96,19 @@ function RequestRow(props) {
           >
             <EditIcon />
           </button>
+
+          <button
+          className="btn btn-outline-info"
+          onClick={() => {
+              replyButton();
+            }}
+          >
+          {replyStatus ?  <CheckCircleIcon /> : <CheckCircleOutlineIcon />}
+            
+          </button>
+
+
+
         </span>
       </Td>
     </Tr>
