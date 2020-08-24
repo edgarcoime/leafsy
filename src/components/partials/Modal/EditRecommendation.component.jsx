@@ -333,7 +333,7 @@ function EditRecommendation(props) {
               <label htmlFor="phone">Phone Number</label>
               <input
                 type="tel"
-                pattern="[0-9()]{5} [0-9]{3} - [0-9]{4}"
+
                 className="form-control phone"
                 id="phone"
                 name="phoneNumber"
