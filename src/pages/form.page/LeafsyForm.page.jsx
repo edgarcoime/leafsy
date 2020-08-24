@@ -37,7 +37,7 @@ function LeafsyForm() {
   }
   return (
     <div className="window">
-      <h1 className="form-header">Welcome To {storeTitle} Request Form!</h1>
+      <h1 className="form-header">{storeTitle}'s Request Form!</h1>
   <p className="form-header " id="storeAddress"><strong>Bookstore Address: </strong><span id="bookstoreAddress">{storeAddress}</span></p>
         <p className="deliveryRadius" id="deliveryRadius">{deliveryRadius}</p>
       <div className="card bg-light col-sm-6 col-md-4 which-form">
