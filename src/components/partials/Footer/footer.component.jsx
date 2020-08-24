@@ -5,14 +5,17 @@ import copyright from './by-nc-nd.png'
 
 const FooterPage = () => {
   return (
-    <div className="footer">
-    <p> 
-      {/* <img src={PinkLogo} alt="pink book" className="pinkIcon"/>  */}
-      Leafsy © {new Date().getFullYear()} 
-    <a href="http://creativecommons.org/licenses/by-nc-nd/2.0/ca/" className="licensing"><img src={copyright} className="copyrightIcon"/></a> 
- </p>
+    <a href="#navbar">
+      <div className="footer">
+        <p> 
+          {/* <img src={PinkLogo} alt="pink book" className="pinkIcon"/>  */}
+          Leafsy © {new Date().getFullYear()} 
+          <a href="http://creativecommons.org/licenses/by-nc-nd/2.0/ca/" className="licensing"><img src={copyright} className="copyrightIcon"/></a> 
+        </p>
 
-  </div>
+    </div>
+
+    </a>
   );
 }
 
