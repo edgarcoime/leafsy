@@ -52,19 +52,19 @@ function OrderRow(props) {
 
 
     const payload = {
-      repliedStatus: !replyStatus 
+      repliedStatus: !repliedStatus 
     }
 
     editRepliedStatus(payload, orderId)
 
   }
 
-  let rowStyle = {
-    backgroundColor: "#dee2e6"
-  }
+  let rowStyle = {}
 
-  if (!replyStatus || repliedStatus === null || repliedStatus === undefined) {
-    rowStyle.backgroundColor = ""
+  if (!repliedStatus || repliedStatus === null || repliedStatus === undefined) {
+    rowStyle.backgroundColor = "";
+  } else {
+    rowStyle.backgroundColor = "#dee2e6";
   }
 
 
@@ -115,7 +115,7 @@ function OrderRow(props) {
               replyButton();
             }}
           >
-          {replyStatus ?  <CheckCircleIcon /> : <CheckCircleOutlineIcon />}
+          {repliedStatus || replyStatus ?  <CheckCircleIcon /> : <CheckCircleOutlineIcon />}
             
           </button>
 
