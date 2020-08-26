@@ -41,19 +41,23 @@ function OrderRow(props) {
   }
 
 
-  // hook for the replied status of the row component
-  const [replyStatus, setReplyStatus] = useState(repliedStatus || false);
+
 
 // function that changes the replied status for when the button is clicked
   const replyButton = () => {
 
-    setReplyStatus(!replyStatus);
-   
+ 
 
+    let payload = {};
 
-    const payload = {
-      repliedStatus: !replyStatus 
+    if (repliedStatus) {
+     
+        payload.repliedStatus = false; 
+      
+    } else {
+        payload.repliedStatus = true; 
     }
+  
 
     editRepliedStatus(payload, orderId)
 
@@ -115,7 +119,7 @@ function OrderRow(props) {
               replyButton();
             }}
           >
-          {repliedStatus ?  <CheckCircleIcon /> : <CheckCircleOutlineIcon />}
+          {repliedStatus?  <CheckCircleIcon /> : <CheckCircleOutlineIcon />}
             
           </button>
 
