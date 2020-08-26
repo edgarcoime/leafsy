@@ -43,7 +43,7 @@ function RequestRow(props) {
 
 
     const payload = {
-      repliedStatus: !repliedStatus
+      repliedStatus: !replyStatus
     }
 
     editRepliedStatus(payload, recommendationId)
@@ -103,7 +103,7 @@ function RequestRow(props) {
               replyButton();
             }}
           >
-          {repliedStatus || replyStatus ?  <CheckCircleIcon /> : <CheckCircleOutlineIcon />}
+          {repliedStatus ?  <CheckCircleIcon /> : <CheckCircleOutlineIcon />}
             
           </button>
 

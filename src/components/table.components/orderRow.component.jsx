@@ -52,7 +52,7 @@ function OrderRow(props) {
 
 
     const payload = {
-      repliedStatus: !repliedStatus 
+      repliedStatus: !replyStatus 
     }
 
     editRepliedStatus(payload, orderId)
@@ -115,7 +115,7 @@ function OrderRow(props) {
               replyButton();
             }}
           >
-          {repliedStatus || replyStatus ?  <CheckCircleIcon /> : <CheckCircleOutlineIcon />}
+          {repliedStatus ?  <CheckCircleIcon /> : <CheckCircleOutlineIcon />}
             
           </button>
 
