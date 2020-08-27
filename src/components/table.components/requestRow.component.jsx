@@ -34,30 +34,14 @@ function RequestRow(props) {
 
 // function that changes the replied status for when the button is clicked
   const replyButton = () => {
-       
+    
+    // this ensures that the orders made before this update won't cause errors if they don't have a replied status saved in the backend
+    const payload = {repliedStatus: repliedStatus ? false : true};
 
-    let payload = {};
+    editRepliedStatus(payload, recommendationId);
+  };
 
-    if (repliedStatus) {
-      payload.repliedStatus = false;
-    } else {
-      payload.repliedStatus = true;
-    }
-
-
-
-    editRepliedStatus(payload, recommendationId)
-
-  }
-
-  let rowStyle = {}
-
-  if (!repliedStatus || repliedStatus === null || repliedStatus === undefined) {
-    rowStyle.backgroundColor = ""
-  } else {
-    rowStyle.backgroundColor = "#dee2e6"
-  }
-
+  const rowStyle = {backgroundColor: repliedStatus ? "#dee2e6" : ""};
 
   return (
     <Tr style={rowStyle} >
@@ -97,6 +81,7 @@ function RequestRow(props) {
             <EditIcon />
           </button>
 
+            
           <button
           className="btn btn-outline-info"
           onClick={() => {
