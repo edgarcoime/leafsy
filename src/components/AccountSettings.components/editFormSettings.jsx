@@ -7,8 +7,13 @@ import { Alert } from "@material-ui/lab";
 function EditFormSettings({ updateProfile, currentUser }) {
 
     // retrieves the current genre array from the data base and if it isn't present, set the default array 
+    let currentGenreArray;
+    if (currentUser.customGenres) {
+        currentGenreArray = currentUser.customGenres.slice(0,);
+    }
+    
   const [storeInfo, setStoreInfo] = useState({
-    originalGenres: currentUser.customGenres.slice(0,) || [
+    originalGenres: currentGenreArray || [
                                                             "Sci-fi",
                                                             "Thriller",
                                                             "Horror",
