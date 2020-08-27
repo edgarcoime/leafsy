@@ -6,6 +6,19 @@ import { Alert } from "@material-ui/lab";
 
 function EditFormSettings({ updateProfile, currentUser }) {
 
+    const defaultGenres = [
+                            "Sci-fi",
+                            "Thriller",
+                            "Horror",
+                            "Fantasy",
+                            "Canadian Literature",
+                            "Philosophy",
+                            "Poetry",
+                            "History",
+                            "Non-fiction",
+                            "Fiction",
+                        ];
+
     // retrieves the current genre array from the data base and if it isn't present, set the default array 
     let currentGenreArray;
     if (currentUser.customGenres) {
@@ -13,30 +26,8 @@ function EditFormSettings({ updateProfile, currentUser }) {
     }
     
   const [storeInfo, setStoreInfo] = useState({
-    originalGenres: currentGenreArray || [
-                                                            "Sci-fi",
-                                                            "Thriller",
-                                                            "Horror",
-                                                            "Fantasy",
-                                                            "Canadian Literature",
-                                                            "Philosophy",
-                                                            "Poetry",
-                                                            "History",
-                                                            "Non-fiction",
-                                                            "Fiction",
-                                                        ],
-    customGenres: currentUser.customGenres || [
-                                                "Sci-fi",
-                                                "Thriller",
-                                                "Horror",
-                                                "Fantasy",
-                                                "Canadian Literature",
-                                                "Philosophy",
-                                                "Poetry",
-                                                "History",
-                                                "Non-fiction",
-                                                "Fiction",
-                                            ],
+    originalGenres: currentGenreArray || defaultGenres,
+    customGenres: currentUser.customGenres || defaultGenres,
     
   });
 
@@ -132,6 +123,7 @@ function EditFormSettings({ updateProfile, currentUser }) {
 
   }
 
+  // removes a genre when you click on it from the custom genre state
   const removeGenre = (event) => {
     const {id} = event.target;
 
@@ -158,6 +150,8 @@ function EditFormSettings({ updateProfile, currentUser }) {
     <div class="col-md-9">
       <div class="card">
         <div class="card-body">
+
+        {/* displays success message when user sucessfully updates the backend */}
           <div class="row">
             <div class="col-md-12">
               <h4>Edit Information</h4>
@@ -165,8 +159,10 @@ function EditFormSettings({ updateProfile, currentUser }) {
               <hr />
             </div>
           </div>
+
           <div class="row">
             <div class="col-md-12">
+
               <form onSubmit={clickhandler}>
 
                   <div className="genre-display-title">
@@ -175,7 +171,8 @@ function EditFormSettings({ updateProfile, currentUser }) {
 
 
                 <div class="form-group row">
-                <button
+                  {/* adds new items to the custom genre state */}
+                  <button
                       name="submit"
                       onClick={updateGenreArray}
                       className="btn btn-primary"
@@ -203,7 +200,7 @@ function EditFormSettings({ updateProfile, currentUser }) {
 
                 <div className="genre-display-container">
                   <div className="genre-display-title">
-                    <b>Genre Items:</b>
+                    <b>Custom Genres:</b>
                   </div>
 
                   {/* This will display all the genres the user enters */}
@@ -212,8 +209,9 @@ function EditFormSettings({ updateProfile, currentUser }) {
 
 
                 <div>
-                  <button
-                       
+
+                  {/* this button updates the backend with the current genres displayed to the user */}
+                    <button
                         name="submit"
                         onClick={submitSettings}
                         className="btn btn-primary genre-btn-control"
@@ -221,8 +219,8 @@ function EditFormSettings({ updateProfile, currentUser }) {
                         Update
                       </button>     
 
+                      {/* this button erases all the changes the user made to the genre items and restores it with the original items */}
                       <button
-                      
                         name="submit"
                         onClick={refreshGenreArray}
                         className="btn btn-primary genre-btn-control"
