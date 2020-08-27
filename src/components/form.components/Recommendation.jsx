@@ -59,7 +59,7 @@ function Recommendation({ userId, website, storeName, customGenres }) {
     // Create Payload to send to API
     const payload = {
       assignedTo: userId,
-      genre,
+      genre: retrieveClickedGenres(),
       description,
       firstName,
       lastName,
@@ -124,6 +124,17 @@ function Recommendation({ userId, website, storeName, customGenres }) {
       ];
   };
 
+  const retrieveClickedGenres = () => {
+    let selectedGenres = document.getElementsByClassName("genre-card-clicked");
+    
+    let genreArray = [];
+
+    for (let object of selectedGenres) {
+      genreArray.push(object.innerText);
+    }
+    return genreArray.join(", ")
+  }
+
 
   // changes the state as the user types into the inputs
   function handleChange(event) {
@@ -138,6 +149,8 @@ function Recommendation({ userId, website, storeName, customGenres }) {
 
   // randomly generates a genre for the user when user clicks the button
   function surpriseGenre() {
+
+    retrieveClickedGenres();
     setRecommendation((previous) => {
       return {
         ...previous,
@@ -171,9 +184,11 @@ function Recommendation({ userId, website, storeName, customGenres }) {
           <div className="form row  mt-3">
             <div className="form group">
               <label htmlFor="genre-picker">
-                What genre of book would you like to read?
+                What genre of book would you like to read? Select all that apply:
               </label>
-              <div className="input-group mb-3">
+
+
+{/*               <div className="input-group mb-3">
                 <select
                   className="custom-select"
                   id="genre-picker"
@@ -203,7 +218,7 @@ function Recommendation({ userId, website, storeName, customGenres }) {
                     Surprise Me
                   </button>
                 </div>
-              </div>
+              </div> */}
 
 
                 <div>
