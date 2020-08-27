@@ -124,6 +124,7 @@ function Recommendation({ userId, website, storeName, customGenres }) {
   };
 
 
+  // changes the state as the user types into the inputs
   function handleChange(event) {
     const { name, value } = event.target;
     setRecommendation((previous) => {
@@ -134,6 +135,7 @@ function Recommendation({ userId, website, storeName, customGenres }) {
     });
   }
 
+  // randomly generates a genre for the user when user clicks the button
   function surpriseGenre() {
     setRecommendation((previous) => {
       return {
@@ -143,11 +145,11 @@ function Recommendation({ userId, website, storeName, customGenres }) {
     });
   }
 
+  // creates a phone-number mask on the phone number input for better UX
   useEffect(() => {
     const phoneInput = document.getElementById("phone");
  
- 
- Inputmask({"mask": "(999) 999 - 9999"}).mask(phoneInput)
+    Inputmask({"mask": "(999) 999 - 9999"}).mask(phoneInput)
  
    })
  
