@@ -16,10 +16,14 @@
 
 .genre-display-container {
     display: block;
-    margin-top: 1.75rem;
+    margin-top: 1.5rem;
     margin-bottom: 0.75rem;
 }
 
 .genre-btn-control {
     margin: 0.25rem;
+}
+
+.genre-display-title {
+    margin-bottom: 0.5rem;
 }

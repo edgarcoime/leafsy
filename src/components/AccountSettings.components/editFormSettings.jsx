@@ -168,6 +168,12 @@ function EditFormSettings({ updateProfile, currentUser }) {
           <div class="row">
             <div class="col-md-12">
               <form onSubmit={clickhandler}>
+
+                  <div className="genre-display-title">
+                    <p>Add a custom genre! When you're done editing the genre items, press update to finish.</p>
+                  </div>
+
+
                 <div class="form-group row">
                 <button
                       name="submit"
@@ -193,7 +199,12 @@ function EditFormSettings({ updateProfile, currentUser }) {
                   
                 </div>
 
+
+
                 <div className="genre-display-container">
+                  <div className="genre-display-title">
+                    <b>Genre Items:</b>
+                  </div>
 
                   {/* This will display all the genres the user enters */}
                   {customGenres.map((genre, index) => <GenreBox genre={genre} key={index} index={index} removeGenre={removeGenre} />)}
