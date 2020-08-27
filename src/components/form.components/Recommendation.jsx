@@ -10,7 +10,9 @@ import { useHistory } from "react-router-dom";
 import { v4 as uuidv4 } from 'uuid';
 import Inputmask from "inputmask";
 
-function Recommendation({ userId, website, storeName }) {
+function Recommendation({ userId, website, storeName, customGenres }) {
+
+  
   let history = useHistory();
   let provinces = ["AB", "BC", "MB", "NB", "NL", "NS", "ON", "PE", "QC", "SK", "NT", "NU", "YT"];
 
@@ -98,18 +100,29 @@ function Recommendation({ userId, website, storeName }) {
 
   }
 
-  let genreValues = [
-    "Sci-fi",
-    "Thriller",
-    "Horror",
-    "Fantasy",
-    "Canadian Literature",
-    "Philosophy",
-    "Poetry",
-    "History",
-    "Non-fiction",
-    "Fiction",
-  ];
+  let genreValues;
+
+  // error handling. checks to see if user has a valid customGenres array in the backend
+  if (customGenres) {
+
+      genreValues = [...customGenres];
+
+  } else {
+      // set default array if user does not have a default array in the backeend
+      genreValues = [
+        "Sci-fi",
+        "Thriller",
+        "Horror",
+        "Fantasy",
+        "Canadian Literature",
+        "Philosophy",
+        "Poetry",
+        "History",
+        "Non-fiction",
+        "Fiction",
+      ];
+  };
+
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -125,7 +138,7 @@ function Recommendation({ userId, website, storeName }) {
     setRecommendation((previous) => {
       return {
         ...previous,
-        genre: genreValues[Math.floor(Math.random() * 10)],
+        genre: genreValues[Math.floor(Math.random() * genreValues.length)],
       };
     });
   }
