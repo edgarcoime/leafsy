@@ -72,9 +72,11 @@ function EditFormSettings({ updateProfile, currentUser }) {
 
         // empties the genre input box
         setNewGenre("");
+
       } else {
+          // if the input box is empty and user presses "enter" the backend will update
           updateDatabase();
-      }
+      };
     
   };
 
