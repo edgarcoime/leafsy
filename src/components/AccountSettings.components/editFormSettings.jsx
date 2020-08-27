@@ -202,17 +202,19 @@ function EditFormSettings({ updateProfile, currentUser }) {
 
                 <div>
                   <button
+                       
                         name="submit"
                         onClick={submitSettings}
-                        className="btn btn-primary"
+                        className="btn btn-primary genre-btn-control"
                       >
                         Update
                       </button>     
 
                       <button
+                      
                         name="submit"
                         onClick={refreshGenreArray}
-                        className="btn btn-primary"
+                        className="btn btn-primary genre-btn-control"
                       >
                           Restart
                       </button>     

@@ -17,5 +17,9 @@
 .genre-display-container {
     display: block;
     margin-top: 1.75rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.genre-btn-control {
+    margin: 0.25rem;
 }
