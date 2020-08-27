@@ -1,8 +1,12 @@
 import React from "react";
+import CancelIcon from '@material-ui/icons/Cancel';
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
+import CancelOutlinedIcon from '@material-ui/icons/CancelOutlined';
 
-function GenreBox({genre, index}) {
+function GenreBox({genre, index, removeGenre}) {
     return <div className="card">
-        <div>
+        <div id={index} onClick={removeGenre}>
+
         <h4 id={index}>{genre}{index}</h4>
 
         </div>

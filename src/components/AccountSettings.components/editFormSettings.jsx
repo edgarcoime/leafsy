@@ -11,38 +11,39 @@ function EditFormSettings({ updateProfile, currentUser }) {
     
   });
 
- const  {customGenres} = storeInfo;
+    const  {customGenres} = storeInfo;
 
- const [newGenre, setNewGenre] = useState("")
+    const [newGenre, setNewGenre] = useState("")
 
-  function handleChange(event) {
+    function handleChange(event) {
+
     const {value } = event.target;
 
     setNewGenre(value);
-
-
-   /*  setStoreInfo((prevSetting) => {
-      return {
-        ...prevSetting,
-        customGenres: [...prevSetting.customGenres, value],
-      };
-    }); */
-  }
+    }
+ 
 
   const [updateStatus, setUpdateStatus] = useState(false);
 
+  const updateGenreArray = () => {
+
+      if (newGenre) {
+
+        setStoreInfo((prevSetting) => {
+            return {
+                ...prevSetting,
+                customGenres: [...prevSetting.customGenres, newGenre],
+                };
+            });
+      };
+    
+  };
+
   const submitSettings = (event) => {
     event.preventDefault();
-        setStoreInfo((prevSetting) => {
-      return {
-        ...prevSetting,
-        customGenres: [...prevSetting.customGenres, newGenre],
-      };
-    });
+
     const parsedInfo = { ...storeInfo }
     console.log(parsedInfo)
-
-
 
     // updates the backend of the user
     updateProfile(parsedInfo);
@@ -53,6 +54,23 @@ function EditFormSettings({ updateProfile, currentUser }) {
     }, 5000);
 
   };
+
+  const removeGenre = (event) => {
+    const {id} = event.target;
+
+    let genreArray = storeInfo.customGenres;
+
+    genreArray.splice(id, 1);
+
+    setStoreInfo((prevSetting) => {
+        return {
+            ...prevSetting,
+            customGenres: genreArray,
+            };
+        });
+  };
+
+  
 
 
   const clickhandler = (e) => {
@@ -76,7 +94,7 @@ function EditFormSettings({ updateProfile, currentUser }) {
                 <div class="form-group row">
                 <button
                       name="submit"
-                      onClick={submitSettings}
+                      onClick={updateGenreArray}
                       className="btn btn-primary"
                     >
                       Add Genre
@@ -97,8 +115,15 @@ function EditFormSettings({ updateProfile, currentUser }) {
                   </div>
                   
                 </div>
-                {customGenres.map((genre, index) => <GenreBox genre={genre} key={index} index={index} />)}
+                {customGenres.map((genre, index) => <GenreBox genre={genre} key={index} index={index} removeGenre={removeGenre} />)}
 
+                <button
+                      name="submit"
+                      onClick={submitSettings}
+                      className="btn btn-primary"
+                    >
+                      Update
+                    </button>     
               </form>
             </div>
           </div>
