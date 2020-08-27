@@ -6,29 +6,56 @@ import { Alert } from "@material-ui/lab";
 
 function EditFormSettings({ updateProfile, currentUser }) {
 
-
+    // retrieves the current genre array from the data base and if it isn't present, set the default array 
   const [storeInfo, setStoreInfo] = useState({
-    originalGenres: currentUser.customGenres.slice(0,) || [],
-    customGenres: currentUser.customGenres || [],
+    originalGenres: currentUser.customGenres.slice(0,) || [
+                                                            "Sci-fi",
+                                                            "Thriller",
+                                                            "Horror",
+                                                            "Fantasy",
+                                                            "Canadian Literature",
+                                                            "Philosophy",
+                                                            "Poetry",
+                                                            "History",
+                                                            "Non-fiction",
+                                                            "Fiction",
+                                                        ],
+    customGenres: currentUser.customGenres || [
+                                                "Sci-fi",
+                                                "Thriller",
+                                                "Horror",
+                                                "Fantasy",
+                                                "Canadian Literature",
+                                                "Philosophy",
+                                                "Poetry",
+                                                "History",
+                                                "Non-fiction",
+                                                "Fiction",
+                                            ],
     
   });
 
+  // retreves the custom genre array for maping out all the genres on the screen
     const  {customGenres} = storeInfo;
 
+    // this handles the state of the genre input box
     const [newGenre, setNewGenre] = useState("");
 
+    // handles the change in state of the genre input box as the user types
     function handleChange(event) {
 
-    const {value } = event.target;
+        const {value } = event.target;
 
-    setNewGenre(value);
+        setNewGenre(value);
     }
  
-
+    // handles whether to show the updated icon for user to see once an update request is submitted
   const [updateStatus, setUpdateStatus] = useState(false);
 
+  // adds a genre to the custome genre arraystate in store info
   const updateGenreArray = () => {
-
+    
+    // prevents addition of empty strings (newGenre is the state of the genre input box)
       if (newGenre) {
 
         setStoreInfo((prevSetting) => {
@@ -37,24 +64,34 @@ function EditFormSettings({ updateProfile, currentUser }) {
                 customGenres: [...prevSetting.customGenres, newGenre],
                 };
             });
+
+        // empties the genre input box
+        setNewGenre("");
       };
     
   };
 
+  // resets the state of the current custom genres array back to the database version
   const refreshGenreArray = () => {
     
+    // sets the current state of the custom genres array back to a copy of the orginal genres array 
     setStoreInfo((prevSetting) => {
         return {
             ...prevSetting,
             customGenres: storeInfo.originalGenres.slice(0,),
             };
         });
-  };
+
+    // empties the genre input box
+    setNewGenre("");
+};
   
 
+// updates the database backend
   const submitSettings = (event) => {
     event.preventDefault();
 
+    // sets the state of the originalgenres array to the current edited custom genres array
     setStoreInfo((prevSetting) => {
         return {
             ...prevSetting,
@@ -62,12 +99,18 @@ function EditFormSettings({ updateProfile, currentUser }) {
             };
         });
 
-    const parsedInfo = { ...storeInfo }
+    // empties the genre input box
+    setNewGenre("");
+
+    // this ensures that only the customGenres array is saved
+    const parsedInfo = { customGenres: storeInfo.customGenres }
     console.log(parsedInfo)
 
     // updates the backend of the user
     updateProfile(parsedInfo);
 
+    // this handles the state of the updated notification for the user to see
+    // the notification will appear for 5 seconds
     setUpdateStatus(true);
     setTimeout(() => {
       setUpdateStatus(false);
@@ -104,7 +147,7 @@ function EditFormSettings({ updateProfile, currentUser }) {
           <div class="row">
             <div class="col-md-12">
               <h4>Edit Information</h4>
-              {updateStatus && <Alert severity="success">Profile updated successfully!</Alert>}
+              {updateStatus && <Alert severity="success">Genres updated successfully!</Alert>}
               <hr />
             </div>
           </div>
@@ -119,7 +162,7 @@ function EditFormSettings({ updateProfile, currentUser }) {
                     >
                       Add Genre
                     </button>     
-                    <Popover title="Genre Input" content="Personalize your forms by adding the genres you want your customers to choose from. (e.g. Fantasy). To remove a genre, just press on the box!" />
+                    <Popover title="Genre Input" content="Personalize your forms by adding the genres you want your customers to choose from. (e.g. Fantasy). To remove a genre, just press on the box! When you feel like you're done, just press update!" />
                   
                   <div class="col-8">
                     <input
@@ -135,6 +178,8 @@ function EditFormSettings({ updateProfile, currentUser }) {
                   </div>
                   
                 </div>
+
+                {/* This will display all the genres the user enters */}
                 {customGenres.map((genre, index) => <GenreBox genre={genre} key={index} index={index} removeGenre={removeGenre} />)}
 
                 <button
