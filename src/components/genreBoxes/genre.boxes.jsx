@@ -7,7 +7,7 @@ function GenreBox({genre, index, removeGenre}) {
     return <div className="card">
         <div id={index} onClick={removeGenre}>
 
-        <h4 id={index}>{genre}{index}</h4>
+        <h4 id={index}>{genre}</h4>
 
         </div>
     </div>

@@ -5,15 +5,17 @@ import GenreBox from "../genreBoxes/genre.boxes";
 import { Alert } from "@material-ui/lab";
 
 function EditFormSettings({ updateProfile, currentUser }) {
-  const [storeInfo, setStoreInfo] = useState({
 
+
+  const [storeInfo, setStoreInfo] = useState({
+    originalGenres: currentUser.customGenres.slice(0,) || [],
     customGenres: currentUser.customGenres || [],
     
   });
 
     const  {customGenres} = storeInfo;
 
-    const [newGenre, setNewGenre] = useState("")
+    const [newGenre, setNewGenre] = useState("");
 
     function handleChange(event) {
 
@@ -39,8 +41,26 @@ function EditFormSettings({ updateProfile, currentUser }) {
     
   };
 
+  const refreshGenreArray = () => {
+    
+    setStoreInfo((prevSetting) => {
+        return {
+            ...prevSetting,
+            customGenres: storeInfo.originalGenres.slice(0,),
+            };
+        });
+  };
+  
+
   const submitSettings = (event) => {
     event.preventDefault();
+
+    setStoreInfo((prevSetting) => {
+        return {
+            ...prevSetting,
+            originalGenres: prevSetting.customGenres.slice(0,),
+            };
+        });
 
     const parsedInfo = { ...storeInfo }
     console.log(parsedInfo)
@@ -99,7 +119,7 @@ function EditFormSettings({ updateProfile, currentUser }) {
                     >
                       Add Genre
                     </button>     
-                    <Popover title="Genre Input" content="Personalize your forms by adding the genres you want your customers to choose from. (e.g. Fantasy)" />
+                    <Popover title="Genre Input" content="Personalize your forms by adding the genres you want your customers to choose from. (e.g. Fantasy). To remove a genre, just press on the box!" />
                   
                   <div class="col-8">
                     <input
@@ -124,6 +144,15 @@ function EditFormSettings({ updateProfile, currentUser }) {
                     >
                       Update
                     </button>     
+
+                    <button
+                      name="submit"
+                      onClick={refreshGenreArray}
+                      className="btn btn-primary"
+                    >
+                        Restart
+                    </button>     
+
               </form>
             </div>
           </div>
