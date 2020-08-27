@@ -3,6 +3,7 @@ import googleIcon from "./googleDesktop.png";
 import { useFirestore } from "react-redux-firebase";
 import calculateDistance from "./calculate_distance";
 import { Alert } from "@material-ui/lab"
+import GenreBox from "../genreBoxes/genre.boxes";
 
 import "./form.component.css";
 
@@ -203,6 +204,14 @@ function Recommendation({ userId, website, storeName, customGenres }) {
                   </button>
                 </div>
               </div>
+
+
+                <div>
+                {genreValues.map((genre, index) => <GenreBox genre={genre} key={index} index={index}  />)}
+                </div>
+
+
+
             </div>
           </div>
 

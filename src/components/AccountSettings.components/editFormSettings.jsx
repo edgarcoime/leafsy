@@ -204,7 +204,7 @@ function EditFormSettings({ updateProfile, currentUser }) {
                   </div>
 
                   {/* This will display all the genres the user enters */}
-                  {customGenres.map((genre, index) => <GenreBox genre={genre} key={index} index={index} removeGenre={removeGenre} />)}
+                  {customGenres.map((genre, index) => <GenreBox genre={genre} key={index} index={index} onclick={removeGenre} />)}
                 </div>
 
 
