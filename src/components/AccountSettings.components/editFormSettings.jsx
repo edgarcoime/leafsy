@@ -72,7 +72,9 @@ function EditFormSettings({ updateProfile, currentUser }) {
 
         // empties the genre input box
         setNewGenre("");
-      };
+      } else {
+          updateDatabase();
+      }
     
   };
 
@@ -96,7 +98,12 @@ function EditFormSettings({ updateProfile, currentUser }) {
   const submitSettings = (event) => {
     event.preventDefault();
 
-    // sets the state of the originalgenres array to the current edited custom genres array
+    updateDatabase();
+    
+  };
+
+  const updateDatabase = () => {
+      // sets the state of the originalgenres array to the current edited custom genres array
     setStoreInfo((prevSetting) => {
         return {
             ...prevSetting,
@@ -121,7 +128,7 @@ function EditFormSettings({ updateProfile, currentUser }) {
       setUpdateStatus(false);
     }, 5000);
 
-  };
+  }
 
   const removeGenre = (event) => {
     const {id} = event.target;
