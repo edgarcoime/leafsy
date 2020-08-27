@@ -14,3 +14,8 @@
     margin-bottom: 4%;
 }
 
+.genre-display-container {
+    display: block;
+    margin-top: 1.75rem;
+    margin-bottom: 1rem;
+}

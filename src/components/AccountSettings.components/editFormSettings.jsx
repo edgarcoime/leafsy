@@ -193,24 +193,31 @@ function EditFormSettings({ updateProfile, currentUser }) {
                   
                 </div>
 
-                {/* This will display all the genres the user enters */}
-                {customGenres.map((genre, index) => <GenreBox genre={genre} key={index} index={index} removeGenre={removeGenre} />)}
+                <div className="genre-display-container">
 
-                <button
-                      name="submit"
-                      onClick={submitSettings}
-                      className="btn btn-primary"
-                    >
-                      Update
-                    </button>     
+                  {/* This will display all the genres the user enters */}
+                  {customGenres.map((genre, index) => <GenreBox genre={genre} key={index} index={index} removeGenre={removeGenre} />)}
+                </div>
 
-                    <button
-                      name="submit"
-                      onClick={refreshGenreArray}
-                      className="btn btn-primary"
-                    >
-                        Restart
-                    </button>     
+
+                <div>
+                  <button
+                        name="submit"
+                        onClick={submitSettings}
+                        className="btn btn-primary"
+                      >
+                        Update
+                      </button>     
+
+                      <button
+                        name="submit"
+                        onClick={refreshGenreArray}
+                        className="btn btn-primary"
+                      >
+                          Restart
+                      </button>     
+
+                </div>
 
               </form>
             </div>
