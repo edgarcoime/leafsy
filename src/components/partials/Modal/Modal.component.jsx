@@ -54,6 +54,7 @@ function ModalButton(props) {
                 closeModal={closeModal}
                 openModal={openModal}
                 addRequest={addRequest}
+                customGenres={customGenres}
               />
             )}
 

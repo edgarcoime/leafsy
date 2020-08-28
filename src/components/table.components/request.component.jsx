@@ -191,7 +191,7 @@ function Request() {
   }
 
    //  ||reco.confirmationNumber.toLowerCase().includes(searchBar.toLowerCase())
-console.log(customGenres)
+
 
   return (
     <div className="window request-table">
@@ -206,6 +206,7 @@ console.log(customGenres)
         openModal={openModal}
         closeModal={closeModal}
         modalShow={modalShow}
+        customGenres={customGenres}
       />
 
       <Modal

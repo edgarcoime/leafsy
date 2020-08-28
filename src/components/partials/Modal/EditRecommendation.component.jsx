@@ -150,6 +150,7 @@ function EditRecommendation(props) {
               <div>
                 {genreValues.map((genre, index) => <GenreBox genre={genre} key={index} index={index} clickedGenre={recommendation.genre} />)}
                 </div>
+                
             </div>
           </div>
 
