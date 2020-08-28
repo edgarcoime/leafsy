@@ -1,0 +1,21 @@
+.genre-card {
+    width: fit-content;
+    padding: 0.5rem;
+    margin: 0.25rem;
+    display: inline-block !important;
+    cursor: pointer;
+    
+    margin-bottom: 1rem;
+}
+
+.genre-card:hover {
+    background-color: rgba(161, 119, 201, 0.6) !important;
+}
+
+.genre-card-clicked {
+    background-color: rgba(161, 119, 201, 0.6) !important;
+}
+
+.genre-card-unclicked {
+    background-color: rgba(161, 119, 201, 0.3) !important;
+}

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import googleIcon from "../../form.components/googleDesktop.png";
+import GenreBox from "../../genreBoxes/genre.boxes";
 import './modal.css'
 import Inputmask from "inputmask";
 
@@ -9,7 +10,7 @@ function EditRecommendation(props) {
   const initialRecommendation = props.currentEdit;
 
   const [recommendation, setRecommendation] = useState({
-    genre: initialRecommendation.genre,
+    genre: initialRecommendation.genre.split(", "),
     description: initialRecommendation.description,
     firstName: initialRecommendation.firstName,
     lastName: initialRecommendation.lastName,
@@ -44,7 +45,7 @@ function EditRecommendation(props) {
 
     // Create Payload to send to API
     const payload = {
-      genre,
+      genre: retrieveClickedGenres(),
       description,
       firstName,
       lastName,
@@ -63,7 +64,7 @@ function EditRecommendation(props) {
     props.closeModal();
   }
 
-  let genreValues = [
+  const defaultGenres = [
     "Sci-fi",
     "Thriller",
     "Horror",
@@ -75,6 +76,21 @@ function EditRecommendation(props) {
     "Non-fiction",
     "Fiction",
   ];
+
+
+  const genreValues = props.customGenres ? props.customGenres : defaultGenres;
+
+  const retrieveClickedGenres = () => {
+    let selectedGenres = document.getElementsByClassName("genre-card-clicked");
+    
+    let genreArray = [];
+
+    for (let object of selectedGenres) {
+      genreArray.push(object.innerText);
+    }
+    return genreArray.join(", ")
+  }
+
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -106,7 +122,9 @@ function EditRecommendation(props) {
               <label htmlFor="genre-picker">
                 Genre
               </label>
-              <div className="input-group mb-3">
+
+
+{/*               <div className="input-group mb-3">
                 <select
                   className="custom-select"
                   id="genre-picker"
@@ -127,7 +145,12 @@ function EditRecommendation(props) {
                 </select>
 
 
-              </div>
+              </div> */}
+
+              <div>
+                {genreValues.map((genre, index) => <GenreBox genre={genre} key={index} index={index} clickedGenre={recommendation.genre} />)}
+                </div>
+                
             </div>
           </div>
 

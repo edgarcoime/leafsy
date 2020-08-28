@@ -46,30 +46,14 @@ function OrderRow(props) {
 // function that changes the replied status for when the button is clicked
   const replyButton = () => {
 
- 
-
-    let payload = {};
-
-    if (repliedStatus) {
-     
-        payload.repliedStatus = false; 
-      
-    } else {
-        payload.repliedStatus = true; 
-    }
-  
+    // this ensures that the orders made before this update won't cause errors if they don't have a replied status saved in the backend
+    const payload = {repliedStatus: repliedStatus ? false : true};
 
     editRepliedStatus(payload, orderId)
 
   }
 
-  let rowStyle = {}
-
-  if (!repliedStatus || repliedStatus === null || repliedStatus === undefined) {
-    rowStyle.backgroundColor = "";
-  } else {
-    rowStyle.backgroundColor = "#dee2e6";
-  }
+  const rowStyle = {backgroundColor: repliedStatus ? "#dee2e6" : ""};
 
 
   return (
@@ -119,7 +103,7 @@ function OrderRow(props) {
               replyButton();
             }}
           >
-          {repliedStatus?  <CheckCircleIcon /> : <CheckCircleOutlineIcon />}
+          {repliedStatus ?  <CheckCircleIcon /> : <CheckCircleOutlineIcon />}
             
           </button>
 

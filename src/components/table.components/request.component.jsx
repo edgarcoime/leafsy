@@ -34,6 +34,9 @@ function Request() {
 
   // Rendered Assets
   const storeName = currentUserProfile.isEmpty ? null : currentUserProfile.storeName;
+  const customGenres = currentUserProfile.isEmpty ? null : currentUserProfile.customGenres;
+
+  
 
   // Connecr Firestore collection into Redux
   useFirestoreConnect({
@@ -96,7 +99,7 @@ function Request() {
     postalCode: "",
   });
 
-  const editRecommendation = (recommendation, recoId) => {
+  const editRecommendation = (recommendation, recoId, customGenres) => {
     setCurrentEdit({
       genre: recommendation.genre,
       description: recommendation.description,
@@ -203,6 +206,7 @@ function Request() {
         openModal={openModal}
         closeModal={closeModal}
         modalShow={modalShow}
+        customGenres={customGenres}
       />
 
       <Modal
@@ -214,6 +218,7 @@ function Request() {
         currentEdit={currentEdit}
         editRecommendation={editRecommendation}
         submitEditReco={submitEditReco}
+        customGenres={customGenres}
       />
 
               
@@ -345,6 +350,8 @@ function Request() {
                   postalCode={recommendation.postalCode}
                   repliedStatus={recommendation.repliedStatus}
                   editRepliedStatus={editRepliedStatus}
+                  customGenres={customGenres}
+                  
                 />
               ) 
             })

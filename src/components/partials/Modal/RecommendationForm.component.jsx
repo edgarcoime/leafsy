@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { useFirestore } from "react-redux-firebase";
 import { useSelector } from "react-redux";
 import Inputmask from "inputmask";
+import GenreBox from "../../genreBoxes/genre.boxes";
 
 function Recommendation(props) {
   let provinces = ["AB", "BC", "MB", "NB", "NL", "NS", "ON", "PE", "QC", "SK", "NT", "NU", "YT"];
@@ -49,7 +50,7 @@ function Recommendation(props) {
     // Create Payload to send to API
     const payload = {
       assignedTo: currentUser.uid,
-      genre,
+      genre: retrieveClickedGenres(),
       description,
       firstName,
       lastName,
@@ -72,7 +73,7 @@ function Recommendation(props) {
     props.closeModal();
   }
 
-  let genreValues = [
+  const defaulltGenres= [
     "Sci-fi",
     "Thriller",
     "Horror",
@@ -84,6 +85,21 @@ function Recommendation(props) {
     "Non-fiction",
     "Fiction",
   ];
+
+  const genreValues  = props.customGenres ? props.customGenres : defaulltGenres;
+
+
+  const retrieveClickedGenres = () => {
+    let selectedGenres = document.getElementsByClassName("genre-card-clicked");
+    
+    let genreArray = [];
+
+    for (let object of selectedGenres) {
+      genreArray.push(object.innerText);
+    }
+    return genreArray.join(", ")
+  };
+
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -124,7 +140,9 @@ function Recommendation(props) {
               <label htmlFor="genre-picker">
                 Genre
               </label>
-              <div className="input-group mb-3">
+
+
+{/*               <div className="input-group mb-3">
                 <select
                   className="custom-select"
                   id="genre-picker"
@@ -145,7 +163,12 @@ function Recommendation(props) {
                 </select>
 
 
-              </div>
+              </div> */}
+
+              <div>
+                {genreValues.map((genre, index) => <GenreBox genre={genre} key={index} index={index} />)}
+                </div>
+
             </div>
           </div>
 

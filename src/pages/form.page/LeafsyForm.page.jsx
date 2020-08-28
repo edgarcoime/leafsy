@@ -24,6 +24,7 @@ function LeafsyForm() {
   const storeAddress = user ? user.storeAddress : "555 seymour st., vancouver"
   const deliveryRadius = user ? user.deliveryRadius : null
   const website = user ? user.storeWebsite : null
+  const customGenre = user ? user.customGenres : []
 
  
   const [hasOrder, setOrder] = useState(true);
@@ -76,7 +77,7 @@ function LeafsyForm() {
           </div>
         </div>
       </div>
-      {hasOrder ? <Order userId={userId} website={website} storeName={storeTitle} /> : <Recommendation userId={userId} website={website} storeName={storeTitle} />}
+      {hasOrder ? <Order userId={userId} website={website} storeName={storeTitle} /> : <Recommendation userId={userId} website={website} storeName={storeTitle} customGenres={customGenre} />}
     </div>
   );
 }
