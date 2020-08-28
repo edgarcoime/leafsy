@@ -60,7 +60,7 @@ function RequestRow(props) {
 
       <Td className="delivery"> {deliveryOptions}</Td>
       <Td className="address">{street}{city && street ?  "," : null} {city}{city && province ? "," : null} {province} {postalCode}</Td>
-      <Td className="genre icon-fix"> {genre} </Td>
+      <Td className="genre"> {genre} </Td>
       <Td className="description"> {description} </Td>
 
       <Td className="edit">
