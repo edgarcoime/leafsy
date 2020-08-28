@@ -83,7 +83,7 @@ export default function ProfilePage() {
                  <div className="list-group ">
                   <button onClick={generalSettings} className={menu.generalSettings ? "list-group-item list-group-item-action active" : "list-group-item list-group-item-action"} >General</button>
                   <button onClick={securitySettings} className={menu.securitySettings ? "list-group-item list-group-item-action active" : "list-group-item list-group-item-action"}>Security</button>
-                  <button onClick={editFormSettings} className={menu.editFormsSettings ? "list-group-item list-group-item-action active" : "list-group-item list-group-item-action"} >Edit Forms</button>
+                  <button onClick={editFormSettings} className={menu.editFormsSettings ? "list-group-item list-group-item-action active" : "list-group-item list-group-item-action"} >Edit Genres</button>
                 </div> 
             </div>
 

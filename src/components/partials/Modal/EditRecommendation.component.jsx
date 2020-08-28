@@ -64,6 +64,7 @@ function EditRecommendation(props) {
     props.closeModal();
   }
 
+  // default genres for users without a custom genre array (error handling)
   const defaultGenres = [
     "Sci-fi",
     "Thriller",
@@ -77,18 +78,20 @@ function EditRecommendation(props) {
     "Fiction",
   ];
 
-
+// error handles for user accounts created before this update, will set default genres if there is no custom one
   const genreValues = props.customGenres ? props.customGenres : defaultGenres;
 
+  // retrieves all the selected genres by the user and joins them into one string
   const retrieveClickedGenres = () => {
-    let selectedGenres = document.getElementsByClassName("genre-card-clicked");
+
+    const selectedGenres = document.getElementsByClassName("genre-card-clicked");
     
     let genreArray = [];
 
     for (let object of selectedGenres) {
       genreArray.push(object.innerText);
     }
-    return genreArray.join(", ")
+    return genreArray.join(", ");
   }
 
 

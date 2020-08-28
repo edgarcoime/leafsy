@@ -154,7 +154,7 @@ function EditFormSettings({ updateProfile, currentUser }) {
         {/* displays success message when user sucessfully updates the backend */}
           <div class="row">
             <div class="col-md-12">
-              <h4>Edit Information</h4>
+              <h4>Edit Genres</h4>
               {updateStatus && <Alert severity="success">Genres updated successfully!</Alert>}
               <hr />
             </div>
