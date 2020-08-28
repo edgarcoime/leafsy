@@ -28,7 +28,9 @@ function RequestRow(props) {
     province,
     postalCode,
     repliedStatus,
-    editRepliedStatus
+    editRepliedStatus,
+    customGenres,
+    
    } = props;
 
 

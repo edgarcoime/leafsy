@@ -4,9 +4,10 @@ import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import CancelOutlinedIcon from '@material-ui/icons/CancelOutlined';
 import "./genre.boxes.css";
 
-function GenreBox({genre, index, onclick}) {
+function GenreBox({genre, index, onclick, clickedGenre}) {
 
-    const [clickedState, setClickedState] = useState(false);
+    const [clickedState, setClickedState] = useState(clickedGenre ? clickedGenre.includes(genre.toLowerCase()) : false);
+
 
     const clickHandler = (event) => {
         // if there is a function prop, then run the function 

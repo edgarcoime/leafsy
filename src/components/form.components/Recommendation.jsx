@@ -150,7 +150,7 @@ function Recommendation({ userId, website, storeName, customGenres }) {
   // randomly generates a genre for the user when user clicks the button
   function surpriseGenre() {
 
-    retrieveClickedGenres();
+    
     setRecommendation((previous) => {
       return {
         ...previous,
