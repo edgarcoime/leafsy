@@ -35,6 +35,31 @@
     margin-bottom: -1.5px !important;
 }
 
+
+
+.icons {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-column-gap: 0.3rem;
+
+}
+
+.table-icon {
+    width: fit-content;
+}
+
+@media only screen and (max-width: 1284px) {
+    .icons {
+        
+        grid-template-columns: auto;
+        grid-template-rows: auto auto auto;
+        grid-row-gap: 0.3rem;
+        justify-content: center;
+    
+    }
+
+}
+
 @media (max-width: 576px) {
     .request-table {
         padding-bottom: 15%;
@@ -187,6 +212,13 @@ th:hover {
 
     div.tdBefore {
         left: 15% !important;
+    }
+
+    .icons {
+        grid-template-rows: auto;
+        grid-template-columns: auto auto auto;
+        grid-column-gap: 0.3rem;
+    
     }
 
 }

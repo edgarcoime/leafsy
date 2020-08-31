@@ -77,7 +77,7 @@ function OrderRow(props) {
       <Td className="description">{description}</Td>
 
       <Td className="edit">
-        <span className="icon-fix">
+        <span className="icon-fix icons">
           <AlertButton 
             order={order}
             deleteOrder={deleteOrder}
@@ -87,7 +87,7 @@ function OrderRow(props) {
           />
 
           <button
-          className="btn btn-outline-success"
+          className="btn btn-outline-success edit-btn"
             onClick={() => {
               editOrder(order, orderId);
               openEdit();

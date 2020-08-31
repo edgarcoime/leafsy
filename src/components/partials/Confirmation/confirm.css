@@ -6,3 +6,7 @@
 .requestBtns {
     margin-right: 4%;
 }
+
+.requestBtns-delete {
+    width: fit-content;
+}

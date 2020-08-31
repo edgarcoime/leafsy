@@ -27,3 +27,16 @@
 .genre-display-title {
     margin-bottom: 0.5rem;
 }
+
+.genre-input-box {
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+@media only screen and (max-width: 500px) {
+    .genre-input-box {
+        display: block;
+        margin-bottom: 1rem;
+
+    }
+}
