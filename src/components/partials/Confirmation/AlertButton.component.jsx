@@ -28,7 +28,7 @@ export default function AlertDialog(props) {
 
   return (
     <>
-      <button className="requestBtns btn btn-outline-secondary" onClick={handleClickOpen}>
+      <button className="requestBtns-delete btn btn-outline-secondary" onClick={handleClickOpen}>
         <DeleteIcon/>
       </button>
       <Dialog

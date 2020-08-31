@@ -65,6 +65,7 @@ function RequestRow(props) {
 
       <Td className="edit">
         <span className="icons">
+
           <AlertButton 
           deleteRecommendation={deleteRecommendation}
           recommendationId={recommendationId}
@@ -73,7 +74,7 @@ function RequestRow(props) {
           />
 
           <button
-            className="btn btn-outline-success"
+            className="btn btn-outline-success table-icon edit-btn"
 
             onClick={() => {
               openEdit();
@@ -85,7 +86,7 @@ function RequestRow(props) {
 
             
           <button
-          className="btn btn-outline-info"
+          className="btn btn-outline-info table-icon"
           onClick={() => {
               replyButton();
             }}
