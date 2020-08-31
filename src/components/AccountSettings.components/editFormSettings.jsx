@@ -166,12 +166,27 @@ function EditFormSettings({ updateProfile, currentUser }) {
               <form onSubmit={clickhandler}>
 
                   <div className="genre-display-title">
-                    <p>Add a custom genre! When you're done editing the genre items, press update to finish.</p>
+                    <p>Add a custom genre or delete one by pressing on it! When you're done editing the genre items, press UPDATE to finish.</p>
                   </div>
 
 
-                <div class="form-group row">
+                <div class="genre-input-container">
                   {/* adds new items to the custom genre state */}
+                 
+                  <div class="genre-input-box">
+                    <input
+                      id="genre"
+                      name="genre"
+                      value={newGenre}
+                      placeholder="Enter A Genre..."
+                      className="form-control here"
+                      type="text"
+                      onChange={handleChange}
+                    />
+                    
+                  </div>
+
+                  
                   <button
                       name="submit"
                       onClick={updateGenreArray}
@@ -181,18 +196,6 @@ function EditFormSettings({ updateProfile, currentUser }) {
                     </button>     
                     <Popover title="Genre Input" content="Personalize your forms by adding the genres you want your customers to choose from. (e.g. Fantasy). To remove a genre, just press on the box! When you feel like you're done, just press update!" />
                   
-                  <div class="col-8">
-                    <input
-                      id="name"
-                      name="storeName"
-                      value={newGenre}
-                      placeholder="Enter A Genre..."
-                      className="form-control here"
-                      type="text"
-                      onChange={handleChange}
-                    />
-                    
-                  </div>
                   
                 </div>
 
