@@ -3,6 +3,7 @@ import googleIcon from "./googleDesktop.png";
 import { useFirestore } from "react-redux-firebase";
 import calculateDistance from "./calculate_distance";
 import { Alert } from "@material-ui/lab"
+import GenreBox from "../genreBoxes/genre.boxes";
 
 import "./form.component.css";
 
@@ -10,7 +11,9 @@ import { useHistory } from "react-router-dom";
 import { v4 as uuidv4 } from 'uuid';
 import Inputmask from "inputmask";
 
-function Recommendation({ userId, website, storeName }) {
+function Recommendation({ userId, website, storeName, customGenres }) {
+
+  
   let history = useHistory();
   let provinces = ["AB", "BC", "MB", "NB", "NL", "NS", "ON", "PE", "QC", "SK", "NT", "NU", "YT"];
 
@@ -56,7 +59,7 @@ function Recommendation({ userId, website, storeName }) {
     // Create Payload to send to API
     const payload = {
       assignedTo: userId,
-      genre,
+      genre: retrieveClickedGenres(),
       description,
       firstName,
       lastName,
@@ -98,19 +101,42 @@ function Recommendation({ userId, website, storeName }) {
 
   }
 
-  let genreValues = [
-    "Sci-fi",
-    "Thriller",
-    "Horror",
-    "Fantasy",
-    "Canadian Literature",
-    "Philosophy",
-    "Poetry",
-    "History",
-    "Non-fiction",
-    "Fiction",
-  ];
+  let genreValues;
 
+  // error handling. checks to see if user has a valid customGenres array in the backend
+  if (customGenres) {
+
+      genreValues = [...customGenres];
+
+  } else {
+      // set default array if user does not have a default array in the backeend
+      genreValues = [
+        "Sci-fi",
+        "Thriller",
+        "Horror",
+        "Fantasy",
+        "Canadian Literature",
+        "Philosophy",
+        "Poetry",
+        "History",
+        "Non-fiction",
+        "Fiction",
+      ];
+  };
+
+  const retrieveClickedGenres = () => {
+    let selectedGenres = document.getElementsByClassName("genre-card-clicked");
+    
+    let genreArray = [];
+
+    for (let object of selectedGenres) {
+      genreArray.push(object.innerText);
+    }
+    return genreArray.join(", ")
+  }
+
+
+  // changes the state as the user types into the inputs
   function handleChange(event) {
     const { name, value } = event.target;
     setRecommendation((previous) => {
@@ -121,20 +147,23 @@ function Recommendation({ userId, website, storeName }) {
     });
   }
 
+  // randomly generates a genre for the user when user clicks the button
   function surpriseGenre() {
+
+    
     setRecommendation((previous) => {
       return {
         ...previous,
-        genre: genreValues[Math.floor(Math.random() * 10)],
+        genre: genreValues[Math.floor(Math.random() * genreValues.length)],
       };
     });
   }
 
+  // creates a phone-number mask on the phone number input for better UX
   useEffect(() => {
     const phoneInput = document.getElementById("phone");
  
- 
- Inputmask({"mask": "(999) 999 - 9999"}).mask(phoneInput)
+    Inputmask({"mask": "(999) 999 - 9999"}).mask(phoneInput)
  
    })
  
@@ -155,9 +184,11 @@ function Recommendation({ userId, website, storeName }) {
           <div className="form row  mt-3">
             <div className="form group">
               <label htmlFor="genre-picker">
-                What genre of book would you like to read?
+                What genre of book would you like to read? Select all that apply:
               </label>
-              <div className="input-group mb-3">
+
+
+{/*               <div className="input-group mb-3">
                 <select
                   className="custom-select"
                   id="genre-picker"
@@ -187,7 +218,15 @@ function Recommendation({ userId, website, storeName }) {
                     Surprise Me
                   </button>
                 </div>
-              </div>
+              </div> */}
+
+
+                <div>
+                {genreValues.map((genre, index) => <GenreBox genre={genre} key={index} index={index}  />)}
+                </div>
+
+
+
             </div>
           </div>
 

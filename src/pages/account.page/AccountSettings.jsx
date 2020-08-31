@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
-import GeneralSettings from '../../components/AccountSettings.components/generalSettings.component'
-import SecuritySettings from '../../components/AccountSettings.components/securitySettings.component'
-import "./accountSettings.css"
+import React, { useState } from 'react';
+import GeneralSettings from '../../components/AccountSettings.components/generalSettings.component';
+import SecuritySettings from '../../components/AccountSettings.components/securitySettings.component';
+import EditFormSettings from "../../components/AccountSettings.components/editFormSettings";
+import "./accountSettings.css";
 
 // MUI imports
-import CircularProgress from "@material-ui/core/CircularProgress"
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 // firebase Redux
 import { useFirestore } from "react-redux-firebase";
@@ -43,16 +44,36 @@ export default function ProfilePage() {
     
   }
 
-  const [menu, setToggle] = useState(true);
+  const [menu, setToggle] = useState({
+    generalSettings:true,
+    securitySettings: false,
+    editFormsSettings: false
+  }
+    );
 
   const generalSettings = () => {
-    setToggle(true);
+    setToggle({
+      generalSettings:true,
+      securitySettings: false,
+      editFormsSettings: false
+    });
   }
 
   const securitySettings = () => {
-    setToggle(false);
+    setToggle({
+      generalSettings: false,
+      securitySettings: true,
+      editFormsSettings: false
+    });
   }
 
+  const editFormSettings = () => {
+    setToggle({
+      generalSettings: false,
+      securitySettings: false,
+      editFormsSettings: true
+    })
+  }
 
   return isFullyLoaded() ? (
     <>
@@ -60,21 +81,31 @@ export default function ProfilePage() {
         <div className="row">
             <div className="col-md-3">
                  <div className="list-group ">
-                  <button onClick={generalSettings} className={menu ? "list-group-item list-group-item-action active" : "list-group-item list-group-item-action"} >General</button>
-                  <button onClick={securitySettings} className={!menu ? "list-group-item list-group-item-action active" : "list-group-item list-group-item-action"}>Security</button>
+                  <button onClick={generalSettings} className={menu.generalSettings ? "list-group-item list-group-item-action active" : "list-group-item list-group-item-action"} >General</button>
+                  <button onClick={securitySettings} className={menu.securitySettings ? "list-group-item list-group-item-action active" : "list-group-item list-group-item-action"}>Security</button>
+                  <button onClick={editFormSettings} className={menu.editFormsSettings ? "list-group-item list-group-item-action active" : "list-group-item list-group-item-action"} >Edit Genres</button>
                 </div> 
             </div>
 
-            {menu 
-            ?   
+            {menu.generalSettings 
+            &&
             <GeneralSettings 
-            updateProfile={updateProfile}
-            currentUser={currentUser}
+              updateProfile={updateProfile}
+              currentUser={currentUser}
             /> 
-            :
-            <SecuritySettings 
+            }
+
+            {menu.securitySettings &&
+            <SecuritySettings />
             
-            />}  
+            }  
+
+            {menu.editFormsSettings &&
+              <EditFormSettings 
+              updateProfile={updateProfile}
+              currentUser={currentUser}
+            /> 
+            }
           
 
         </div>

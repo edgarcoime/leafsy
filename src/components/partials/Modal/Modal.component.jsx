@@ -21,7 +21,8 @@ function ModalButton(props) {
     editOrder,
     submitEditOrder,
     editRecommendation,
-    submitEditReco
+    submitEditReco,
+    customGenres,
   } = props;
 
   return (
@@ -53,6 +54,7 @@ function ModalButton(props) {
                 closeModal={closeModal}
                 openModal={openModal}
                 addRequest={addRequest}
+                customGenres={customGenres}
               />
             )}
 
@@ -73,6 +75,7 @@ function ModalButton(props) {
                 currentEdit={currentEdit}
                 editRecommendation={editRecommendation}
                 submitEditReco={submitEditReco}
+                customGenres={customGenres}
               />
             )}
           </div>

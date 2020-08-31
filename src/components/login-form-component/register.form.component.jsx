@@ -24,6 +24,18 @@ function LoginForm(props) {
     confirmPassword: "",
     error: false,
     passwordError: false,
+    customGenre: [
+                    "Sci-fi",
+                    "Thriller",
+                    "Horror",
+                    "Fantasy",
+                    "Canadian Literature",
+                    "Philosophy",
+                    "Poetry",
+                    "History",
+                    "Non-fiction",
+                    "Fiction",
+                ],
   };
   const [user, setUser] = useState(INITIAL_STATE);
   const [registerError, setRegisterError] = useState(null);
