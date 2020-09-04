@@ -8,13 +8,10 @@
     margin-bottom: 1rem;
 }
 
-.genre-card:hover {
-    background-color: rgba(161, 119, 201, 0.6) !important;
-}
 
-@media (hover: none) {
+@media (hover: hover) {
     .genre-card:hover {
-        background-color: inherit;
+        background-color: rgba(161, 119, 201, 0.6) !important;
     }
 }
 
