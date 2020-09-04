@@ -98,7 +98,7 @@ function Recommendation(props) {
       genreArray.push(object.innerText.replace(/\s/g, ""));
       
     }
-    console.log(genreArray)
+    
     return genreArray;
   };
 

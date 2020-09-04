@@ -7,7 +7,7 @@ import "./genre.boxes.css";
 function GenreBox({genre, index, onclick, clickedGenre}) {
 
     const [clickedState, setClickedState] = useState(clickedGenre ? clickedGenre.includes(genre) : false);
-    console.log(clickedState, genre, clickedGenre)
+
  
 
     const clickHandler = (event) => {

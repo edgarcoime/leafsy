@@ -41,7 +41,7 @@ function EditRecommendation(props) {
     postalCode,
   } = recommendation;
 
-  console.log(genre);
+ 
 
   async function submitForm(event) {
     event.preventDefault();
@@ -94,9 +94,8 @@ function EditRecommendation(props) {
     for (let object of selectedGenres) {
       genreArray.push(object.innerText.replace(/\s/g, ""));
       
-      
     };
-    console.log(selectedGenres)
+    
     return genreArray;
     
   };
