@@ -10,7 +10,7 @@ function EditRecommendation(props) {
   const initialRecommendation = props.currentEdit;
 
   const [recommendation, setRecommendation] = useState({
-    genre: initialRecommendation.genre.split(", "),
+    genre: initialRecommendation.genre,
     description: initialRecommendation.description,
     firstName: initialRecommendation.firstName,
     lastName: initialRecommendation.lastName,
