@@ -97,7 +97,7 @@ function Recommendation(props) {
     for (let object of selectedGenres) {
       genreArray.push(object.innerText);
     }
-    return genreArray.join(", ")
+    return genreArray;
   };
 
 

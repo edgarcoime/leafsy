@@ -10,7 +10,7 @@ function EditRecommendation(props) {
   const initialRecommendation = props.currentEdit;
 
   const [recommendation, setRecommendation] = useState({
-    genre: initialRecommendation.genre.split(", "),
+    genre: initialRecommendation.genre,
     description: initialRecommendation.description,
     firstName: initialRecommendation.firstName,
     lastName: initialRecommendation.lastName,
@@ -41,7 +41,7 @@ function EditRecommendation(props) {
     postalCode,
   } = recommendation;
 
-  
+  console.log(genre);
 
   async function submitForm(event) {
     event.preventDefault();
@@ -93,9 +93,12 @@ function EditRecommendation(props) {
 
     for (let object of selectedGenres) {
       genreArray.push(object.innerText);
-    }
-    return genreArray.join(", ");
-  }
+      console.log(object)
+    };
+
+    return genreArray;
+    
+  };
 
 
   function handleChange(event) {

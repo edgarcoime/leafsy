@@ -132,7 +132,7 @@ function Recommendation({ userId, website, storeName, customGenres }) {
     for (let object of selectedGenres) {
       genreArray.push(object.innerText);
     }
-    return genreArray.join(", ")
+    return genreArray;
   }
 
 
