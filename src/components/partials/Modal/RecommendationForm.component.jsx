@@ -95,8 +95,8 @@ function Recommendation(props) {
     let genreArray = [];
 
     for (let object of selectedGenres) {
-      genreArray.push(object.innerText);
-      console.log(object)
+      genreArray.push(object.innerText.replace(/\s/g, ""));
+      
     }
     console.log(genreArray)
     return genreArray;

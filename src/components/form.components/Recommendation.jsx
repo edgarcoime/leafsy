@@ -130,7 +130,7 @@ function Recommendation({ userId, website, storeName, customGenres }) {
     let genreArray = [];
 
     for (let object of selectedGenres) {
-      genreArray.push(object.innerText);
+      genreArray.push(object.innerText.replace(/\s/g, ""));
     }
     return genreArray;
   }
