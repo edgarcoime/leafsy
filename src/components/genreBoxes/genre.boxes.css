@@ -10,8 +10,12 @@
 
 
 @media (hover: hover) {
-    .genre-card:hover {
-        background-color: rgba(161, 119, 201, 0.6) !important;
+    .genre-card-clicked:hover {
+        background-color: rgba(161, 119, 201, 0.5) !important;
+    }
+
+    .genre-card-unclicked:hover {
+        background-color: rgba(161, 119, 201, 0.5) !important;
     }
 }
 
