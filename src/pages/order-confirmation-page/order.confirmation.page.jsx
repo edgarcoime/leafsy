@@ -131,7 +131,7 @@ function OrderConfirmation(props) {
                     {genre ?
 
                         <div className="d-flex justify-content-between">
-                            <b className="order-detail-heading confirmation-detail-text" >Genre</b> <p className="confirmation-detail-text">{genre}</p>
+                            <b className="order-detail-heading confirmation-detail-text" >Genre</b> <p className="confirmation-detail-text">{genre.join((", "))}</p>
                         </div>  
 
                     : null
