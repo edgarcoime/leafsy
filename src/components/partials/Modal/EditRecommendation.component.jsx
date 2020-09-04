@@ -41,7 +41,7 @@ function EditRecommendation(props) {
     postalCode,
   } = recommendation;
 
-  console.log(genre);
+ 
 
   async function submitForm(event) {
     event.preventDefault();
@@ -92,10 +92,10 @@ function EditRecommendation(props) {
     let genreArray = [];
 
     for (let object of selectedGenres) {
-      genreArray.push(object.innerText);
-      console.log(object)
+      genreArray.push(object.innerText.replace(/\s/g, ""));
+      
     };
-
+    
     return genreArray;
     
   };
@@ -157,7 +157,7 @@ function EditRecommendation(props) {
               </div> */}
 
               <div>
-                {genreValues.map((genre, index) => <GenreBox genre={genre} key={index} index={index} clickedGenre={recommendation.genre} />)}
+                {genreValues.map((item, index) => <GenreBox genre={item} key={index} index={index} clickedGenre={genre} />)}
                 </div>
                 
             </div>

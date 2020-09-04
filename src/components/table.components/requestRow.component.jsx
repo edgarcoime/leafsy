@@ -32,8 +32,7 @@ function RequestRow(props) {
     customGenres,
     
    } = props;
-   console.log(typeof(genre))
-   console.log(genre)
+
 
 // function that changes the replied status for when the button is clicked
   const replyButton = () => {
