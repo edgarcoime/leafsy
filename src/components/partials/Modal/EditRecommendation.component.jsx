@@ -94,8 +94,9 @@ function EditRecommendation(props) {
     for (let object of selectedGenres) {
       genreArray.push(object.innerText);
       console.log(object)
+      
     };
-
+    console.log(selectedGenres)
     return genreArray;
     
   };
@@ -157,7 +158,7 @@ function EditRecommendation(props) {
               </div> */}
 
               <div>
-                {genreValues.map((genre, index) => <GenreBox genre={genre} key={index} index={index} clickedGenre={recommendation.genre} />)}
+                {genreValues.map((item, index) => <GenreBox genre={item} key={index} index={index} clickedGenre={genre} />)}
                 </div>
                 
             </div>
