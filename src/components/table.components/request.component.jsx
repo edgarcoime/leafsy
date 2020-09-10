@@ -314,16 +314,18 @@ function Request() {
 
           <Tbody>
             {recosArray.filter(reco => 
+            
             reco.docId &&
             (reco.firstName.toLowerCase().includes(searchBar.toLowerCase()) ||
             reco.lastName.toLowerCase().includes(searchBar.toLowerCase()) ||
             reco.phoneNumber.toLowerCase().includes(searchBar.toLowerCase())  ||
             reco.email.toLowerCase().includes(searchBar.toLowerCase()) ||
-            reco.genre.toLowerCase().includes(searchBar.toLowerCase()) ||
+            
             reco.deliveryOptions.toLowerCase().includes(searchBar.toLowerCase()) ||
             reco.address.toLowerCase().includes(searchBar.toLowerCase()) ||
             reco.confirmationNumber.toLowerCase().includes(searchBar.toLowerCase().trim()) ||
-            reco.description.toLowerCase().includes(searchBar.toLowerCase())) 
+            reco.description.toLowerCase().includes(searchBar.toLowerCase())) ||
+            reco.genre.toString().toLowerCase().includes(searchBar.toLowerCase())
             ).map((recommendation, index) => {
 
               if (!!recommendation.docId) return (
